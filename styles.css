@@ -1,0 +1,84 @@
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header, footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 1em 0;
+    }
+    nav {
+      background-color: #e6e6e6;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 0.5em;
+    }
+    nav a {
+      margin: 0.5em;
+      text-decoration: none;
+      color: #003366;
+      font-weight: bold;
+    }
+    main {
+      padding: 1em;
+      max-width: 960px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 2em;
+    }
+    h2 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.25em;
+      color: #003366;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1em;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 0.75em;
+      text-align: center;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+p.back-to-top {
+    text-align: right; /* Solo este párrafo alineado a la derecha */
+}
+
+p.centrado {
+    text-align: center; /* Solo este párrafo centrado */
+}
+
+.fecha-publicacion {
+  text-align: right;
+  font-weight: bold; /* Puedes darle estilo especial */
+  color: blue;
+  font-size: 14px;
+  font-style:italic;
+}
+
+/* Estilos para las notas al pie de la tabla (tfoot) */
+tfoot td {
+  text-align: left;     /* Alinea el texto a la izquierda */
+  font-size: 0.9em;     /* Hace la fuente ligeramente más pequeña */
+  color: #555;           /* Un color un poco más suave que el texto principal */
+  line-height: 1.5;     /* Aumenta el espacio entre líneas para mejor legibilidad */
+  background-color: #f9f9f9; /* Asegura un fondo limpio sin la alternancia de color */
+  border-top: 2px solid #ccc; /* Una línea superior para separarlo del cuerpo de la tabla */
+}
+
+.fila-promedio {
+    font-weight: bold;
+}
