@@ -33,6 +33,7 @@
 
             <nav id="filtros">
                 <a href="#" onclick="filtrarPublicaciones('todos')">[ Todos ]</a>
+                <a href="#" onclick="filtrarPublicaciones('remesas')">[ Remesas ]</a>
                 <a href="#" onclick="filtrarPublicaciones('deuda')">[ Deuda ]</a>
                 <a href="#" onclick="filtrarPublicaciones('fobaproa')">[ Fobaproa ]</a>
                 <a href="#" onclick="filtrarPublicaciones('inflacion')">[ Inflación ]</a>
@@ -51,6 +52,49 @@
             
             <div id="contenedor-publicaciones">
 
+<div class="publicacion" data-categoria="remesas" id="remesas">
+    <h2>Remesas recibidas del Extranjero: Análisis por Sexenio</h2>
+    <p class="fecha-publicacion">Actualizado el: 07 de noviembre de 2025</p>
+    
+    <img src="remesas.png" 
+         alt="Gráfico de barras: Remesas por sexenio. Fox: $98B, Calderón: $144B, Peña: $165B, AMLO: $305B, Sheinbaum (parcial): $62B, Proyectado 6 años: $372B. Fuente: Banxico CF107" 
+         width="100%" style="display: block; margin: auto">
+    <br>
+
+    <table>
+        <caption>Acumulado Ingreso por Remesas México por Presidente (millones de dólares)<sup>[1]</sup></caption>
+        <thead>
+            <tr>
+                <th>Presidente</th>
+                <th>Millones de Dólares</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Fox</td><td>$98,163.38</td></tr>
+            <tr><td>Calderón</td><td>$143,995.16</td></tr>
+            <tr><td>Peña</td><td>$164,629.72</td></tr>
+            <tr><td>AMLO</td><td>$305,044.55</td></tr>
+            <tr><td>Sheinbaum (Oct 2024 - Sep 2025)</td><td>$62,067.64</td></tr>
+            <tr><td>Sheinbaum (Proyectado Sexenio Completo)</td><td>$372,405.84*</td></tr>
+            <tr><td colspan="2" style="text-align:center; font-size:0.9em; font-style:italic; padding-top:10px;">
+                Crecimiento AMLO vs. Peña: <strong>+85%</strong> | Sheinbaum (parcial) vs. AMLO: <strong>+22% anualizado</strong>
+            </td></tr>
+        </tbody>
+    </table>
+
+    <p style="font-size: 0.9em; margin-top: 5px; font-style: italic;">
+        * Proyección lineal: $62,067.64M en 12 meses → <strong>$5,172M/mes</strong> × 72 meses = <strong>$372,405.84M</strong>
+    </p>
+
+    <p><small><strong>Crisis internacionales:</strong> Fox (Punto Com), Calderón (Gran Recesión), AMLO (Covid), Sheinbaum (sin crisis mayor hasta sep 2025).</small></p>
+
+    <p>
+        <strong>Fuentes:</strong><br>
+        <sup>[1] </sup><a href="https://www.banxico.org.mx/SieInternet/consultarDirectorioInternetAction.do?sector=1&accion=consultarCuadroAnalitico&idCuadro=CA11&locale=es">BANXICO</a><br>
+    </p>
+
+    <p class="back-to-top"><a href="#inicio">↑ Volver al inicio</a></p>
+</div>
 
 <div class="publicacion" data-categoria="deuda" id="deuda">
     <h2>Deuda Pública de México: Análisis por Sexenio</h2> 
@@ -61,11 +105,11 @@
 El Saldo Histórico de los Requerimientos Financieros del Sector Público (SHRFSP) permite analizar la evolución de esta deuda a través de los diferentes sexenios presidenciales.
     </p>
 
-    <p class="back-to-top"><a href="#inicio">↑ Volver al inicio</a></p>
+    
     <img src="Porcentaje_Total_Deuda.png" alt="Gráfico de pastel de la deuda pública de México por presidente. Contribuciones: AMLO 34.69%, Peña 25.47%, Calderón 22.27%, Fox y 
 	Anteriores 10.42%, y Sheinbaum 7.14%." width="100%" style="display: block; margin: auto">
     <br>
-
+<p class="back-to-top"><a href="#inicio">↑ Volver al inicio</a></p>
     <p>
     La siguiente tabla presenta datos comparativos que muestran no sólo el monto absoluto de la deuda, sino también su peso relativo en la economía 
     nacional (como porcentaje del PIB) y la contribución específica de cada administración al endeudamiento total del país. Se incluye además el 
