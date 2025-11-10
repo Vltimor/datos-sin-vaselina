@@ -19,8 +19,15 @@
     }
     .derecha { text-align: right; }
     .centrado { text-align: center; }
+
+    /* Contenedor gráficos */
+canvas { max-width: 100%; height: auto; }
+    .container { width: 90%; margin: auto; font-family: Arial; }
   </style>
 </head>
+
+    /* Librería Javascript para gráficos */
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <body>
     <header id="inicio">
@@ -55,10 +62,30 @@
 <div class="publicacion" data-categoria="remesas" id="remesas">
     <h2>Remesas recibidas del Extranjero: Análisis por Sexenio</h2>
     <p class="fecha-publicacion">Actualizado el: 07 de noviembre de 2025</p>
-    
-    <img src="remesas.png" 
-         alt="Gráfico de barras: Remesas por sexenio. Fox: $98B, Calderón: $144B, Peña: $165B, AMLO: $305B, Sheinbaum (parcial): $62B, Proyectado 6 años: $372B. Fuente: Banxico CF107" 
-         width="100%" style="display: block; margin: auto">
+
+<!-- GRÁFICA INTERACTIVA -->
+    <canvas id="graficaRemesas"></canvas>
+
+    <script>
+      const ctx = document.getElementById('graficaRemesas').getContext('2d');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Fox', 'Calderón', 'Peña', 'AMLO', 'Sheinbaum (parcial)', 'Sheinbaum (proy.)'],
+          datasets: [{
+            label: 'Remesas (millones USD)',
+            data: [98163.38, 143995.16, 164629.72, 305044.55, 62067.64, 372405.84],
+            backgroundColor: ['#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4', '#1f77b4']
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: { title: { display: true, text: 'Acumulado Ingreso Remesas hasta Sep 2025' } },
+          scales: { y: { beginAtZero: true, ticks: { callback: v => '$' + v.toLocaleString() + 'M' } } }
+        }
+      });
+    </script>
+
     <br>
 
     <table>
