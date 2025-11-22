@@ -79,7 +79,8 @@ canvas { max-width: 100%; height: auto; }
   </p>
 
 <!-- GRÁFICA APILADA (UNA BARRA POR AÑO) -->
-<div style="background:#fff; padding:30px 20px; border-radius:16px; box-shadow:0 6px 25px rgba(0,0,0,0.12); margin:40px 0;">
+
+<!-- <div style="background:#fff; padding:30px 20px; border-radius:16px; box-shadow:0 6px 25px rgba(0,0,0,0.12); margin:40px 0;">
   <canvas class="chart-delitos-apilada"></canvas>
 </div>
 
@@ -114,9 +115,16 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 </script>
+ -->
+
+  <h3 style="color:#444; margin-top:50px;">Víctimas de delitos que atentan contra la vida (SESNSP)</h3>
+
+    <img src="mortales.png" alt="Gráfica apilada (una barra por año) de los delitos con víctimas mortales: 2018 (ene-sep) Aborto 463, Feminicidio 669, Homicidio Culposo 12918, Homicidio Doloso 25270, 
+Otros delitos que atentan contra la vida y la integridad corporal 5993; 2025 (ene-sep) Aborto 747, Feminicidio 513, Homicidio Culposo 13674, Homicidio Doloso 18407, Otros delitos que atentan contra 
+la vida y la integridad corporal 13079" width="100%" style="display: block; margin: auto">
+    <br>
 
   <!-- CUADROS ORIGINALES -->
-  <h3 style="color:#444; margin-top:50px;">Víctimas de delitos que atentan contra la vida (SESNSP)</h3>
   <div style="overflow-x:auto; margin:30px 0;">
     <table style="width:100%; border-collapse:collapse; background:#fff; box-shadow:0 3px 15px rgba(0,0,0,0.1); font-size:0.95em;">
       <thead style="background:#2c3e50; color:white;">
@@ -173,7 +181,8 @@ document.addEventListener("DOMContentLoaded", function() {
       </tbody>
     </table>
   </div>
-
+<br>
+<br>
   <!-- DESAPARICIONES -->
   <h3 style="color:#444;">Desapariciones (no localizadas + localizadas muertas)</h3>
   <div style="overflow-x:auto; margin:30px 0;">
@@ -207,7 +216,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
   <p style="text-align:center; color:#777; font-size:0.9em; margin-top:50px;">
     Fuente: SESNSP – Datos Abiertos de Incidencia Delictiva (Fuero Común)<br>
-    Cálculo diario: Total ÷ 273 días (1 ene – 30 sep)
+    Cálculo diario: Total ÷ 273 días (1 ene – 30 sep)<br>
+    En la categoría "Otros delitos contra la vida e integridad" no todas las víctimas son mortales, pero la autoridad no especifica.
   </p>
 
   <!-- SCRIPTS
