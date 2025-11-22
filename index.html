@@ -80,43 +80,6 @@ canvas { max-width: 100%; height: auto; }
 
 <!-- GRÁFICA APILADA (UNA BARRA POR AÑO) -->
 
-<!-- <div style="background:#fff; padding:30px 20px; border-radius:16px; box-shadow:0 6px 25px rgba(0,0,0,0.12); margin:40px 0;">
-  <canvas class="chart-delitos-apilada"></canvas>
-</div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  // Busca TODOS los canvas con clase chart-delitos-apilada (aunque solo haya uno)
-  document.querySelectorAll('.chart-delitos-apilada').forEach(function(canvas) {
-    new Chart(canvas.getContext('2d'), {
-      type: 'bar',
-      data: {
-        labels: ['Enero – Septiembre 2018', 'Enero – Septiembre 2025'],
-        datasets: [
-          { label: 'Otros delitos que atentan contra la vida', data: [5993, 13079], backgroundColor: '#3498db' },
-          { label: 'Homicidio doloso', data: [25270, 18407], backgroundColor: '#9b59b6' },
-          { label: 'Feminicidio', data: [669, 513], backgroundColor: '#e74c3c' },
-          { label: 'Homicidio culposo', data: [12918, 13674], backgroundColor: '#f1c40f' },
-          { label: 'Aborto', data: [463, 747], backgroundColor: '#95a5a6' }
-        ]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          title: { display: true, text: 'Violencia letal total: casi idéntica entre 2018 y 2025', font: { size: 20, weight: 'bold' }, padding: 20 },
-          legend: { position: 'bottom' }
-        },
-        scales: {
-          x: { stacked: true },
-          y: { stacked: true, beginAtZero: true, ticks: { stepSize: 5000 } }
-        }
-      }
-    });
-  });
-});
-</script>
- -->
-
   <h3 style="color:#444; margin-top:50px;">Víctimas de delitos que atentan contra la vida (SESNSP)</h3>
 
     <img src="mortales.png" alt="Gráfica apilada (una barra por año) de los delitos con víctimas mortales: 2018 (ene-sep) Aborto 463, Feminicidio 669, Homicidio Culposo 12918, Homicidio Doloso 25270, 
@@ -125,10 +88,14 @@ la vida y la integridad corporal 13079" width="100%" style="display: block; marg
     <br>
 
   <!-- CUADROS ORIGINALES -->
-  <div style="overflow-x:auto; margin:30px 0;">
+<!--   <div style="overflow-x:auto; margin:30px 0;">
     <table style="width:100%; border-collapse:collapse; background:#fff; box-shadow:0 3px 15px rgba(0,0,0,0.1); font-size:0.95em;">
       <thead style="background:#2c3e50; color:white;">
-        <tr>
+ -->
+     <table>
+        <caption>Delitos con Víctimas Mortales</caption>
+        <thead>
+       <tr>
           <th style="padding:12px; text-align:left;">Indicador</th>
           <th style="padding:12px; text-align:center;">Ene–Sep 2018</th>
           <th style="padding:12px; text-align:center;">Víctimas/día</th>
@@ -180,15 +147,19 @@ la vida y la integridad corporal 13079" width="100%" style="display: block; marg
         </tr>
       </tbody>
     </table>
-  </div>
+<!--   </div> -->
 <br>
 <br>
   <!-- DESAPARICIONES -->
   <h3 style="color:#444;">Desapariciones (no localizadas + localizadas muertas)</h3>
-  <div style="overflow-x:auto; margin:30px 0;">
+<!--       <div style="overflow-x:auto; margin:30px 0;"> -->
 <p>Además el gobierno no menciona otros delitos que son de alto impacto, pero siguen aumentando, como lo son las desapariciones.</p>
-    <table style="width:100%; border-collapse:collapse; background:#fff; box-shadow:0 3px 15px rgba(0,0,0,0.1);">
+<!--     <table style="width:100%; border-collapse:collapse; background:#fff; box-shadow:0 3px 15px rgba(0,0,0,0.1);">
       <thead style="background:#8e44ad; color:white;">
+ -->
+     <table>
+        <caption>Desapariciones</caption>
+        <thead>
         <tr><th style="padding:12px; text-align:left;">Indicador</th><th style="padding:12px; text-align:center;">Ene–Sep 2018</th><th style="padding:12px; text-align:center;">Ene–Sep 2025</th><th style="padding:12px; text-align:center;">Variación</th></tr>
       </thead>
       <tbody style="background:#f4ecf7; font-weight:bold; text-align:center;">
@@ -200,7 +171,7 @@ la vida y la integridad corporal 13079" width="100%" style="display: block; marg
         </tr>
       </tbody>
     </table>
-  </div>
+<!--       </div> -->
 
   <p style="background:#fef9e7; padding:18px; border-left:6px solid #f39c12; border-radius:8px; font-size:1.1em;">
     <strong>Nota clave:</strong> El gobierno dice que “más del 90 % de desaparecidos se localizan”. Realidad: <strong>solo el 52 % de las carpetas terminan en personas localizadas vivas</strong>. El resto queda en el limbo o como cadáveres que muchas veces <u>no se clasifican como homicidio doloso</u>.
@@ -220,84 +191,7 @@ la vida y la integridad corporal 13079" width="100%" style="display: block; marg
     En la categoría "Otros delitos contra la vida e integridad" no todas las víctimas son mortales, pero la autoridad no especifica.
   </p>
 
-  <!-- SCRIPTS
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>
-    const ctx = document.getElementById('graficaApilada').getContext('2d');
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Enero – Septiembre 2018', 'Enero – Septiembre 2025'],
-        datasets: [
-          {
-            label: 'Otros delitos que atentan contra la vida',
-            data: [5993, 13079],
-            backgroundColor: '#3498db',
-            borderColor: '#2980b9',
-            borderWidth: 1
-          },
-          {
-            label: 'Homicidio doloso',
-            data: [25270, 18407],
-            backgroundColor: '#9b59b6',
-            borderColor: '#8e44ad',
-            borderWidth: 1
-          },
-          {
-            label: 'Feminicidio',
-            data: [669, 513],
-            backgroundColor: '#e74c3c',
-            borderColor: '#c0392b',
-            borderWidth: 1
-          },
-          {
-            label: 'Homicidio culposo',
-            data: [12918, 13674],
-            backgroundColor: '#f1c40f',
-            borderColor: '#f39c12',
-            borderWidth: 1
-          },
-          {
-            label: 'Aborto',
-            data: [463, 747],
-            backgroundColor: '#95a5a6',
-            borderColor: '#7f8c8d',
-            borderWidth: 1
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          title: {
-            display: true,
-            text: 'Violencia letal total: casi idéntica entre 2018 y 2025',
-            font: { size: 20, weight: 'bold' },
-            padding: 20
-          },
-          subtitle: {
-            display: true,
-            text: 'Lo que baja en homicidios dolosos sube en “Otros delitos contra la vida” → Reclasificación evidente',
-            font: { size: 15 },
-            color: '#c0392b',
-            padding: { bottom: 20 }
-          },
-          legend: { position: 'bottom' },
-          tooltip: { mode: 'index', intersect: false }
-        },
-        scales: {
-          x: { stacked: true },
-          y: { 
-            stacked: true,
-            beginAtZero: true,
-            ticks: { stepSize: 5000 },
-            title: { display: true, text: 'Número de víctimas', font: { size: 14 } }
-          }
-        }
-      }
-    });
-  </script>
- -->
+
     <p class="back-to-top"><a href="#inicio">↑ Volver al inicio</a></p>
 </div>
 
