@@ -40,16 +40,17 @@ canvas { max-width: 100%; height: auto; }
 
             <nav id="filtros">
                 <a href="#" onclick="filtrarPublicaciones('todos')">[ Todos ]</a>
-                <a href="#" onclick="filtrarPublicaciones('remesas')">[ Remesas ]</a>
-                <a href="#" onclick="filtrarPublicaciones('deuda')">[ Deuda ]</a>
-                <a href="#" onclick="filtrarPublicaciones('fobaproa')">[ Fobaproa ]</a>
-                <a href="#" onclick="filtrarPublicaciones('inflacion')">[ Inflación ]</a>
-                <a href="#" onclick="filtrarPublicaciones('deficits')">[ Déficits ]</a>
-                <a href="#" onclick="filtrarPublicaciones('pib')">[ PIB ]</a>
-                <a href="#" onclick="filtrarPublicaciones('ied')">[ Inversión Extranjera Directa ]</a>
-                <a href="#" onclick="filtrarPublicaciones('pobreza')">[ Pobreza ]</a>
-                <a href="#" onclick="filtrarPublicaciones('empleo')">[ Empleo ]</a>
-                <a href="#" onclick="filtrarPublicaciones('energeticos')">[ Energéticos ]</a>
+                <a href="#" onclick="filtrarPublicaciones('Delitos')">[ Delitos ]</a>
+                <a href="#" onclick="filtrarPublicaciones('Remesas')">[ Remesas ]</a>
+                <a href="#" onclick="filtrarPublicaciones('Deuda')">[ Deuda ]</a>
+                <a href="#" onclick="filtrarPublicaciones('FOBAPROA')">[ FOBAPROA ]</a>
+                <a href="#" onclick="filtrarPublicaciones('Inflación')">[ Inflación ]</a>
+                <a href="#" onclick="filtrarPublicaciones('Déficits')">[ Déficits ]</a>
+                <a href="#" onclick="filtrarPublicaciones('PIB')">[ PIB ]</a>
+                <a href="#" onclick="filtrarPublicaciones('IED')">[ Inversión Extranjera Directa ]</a>
+                <a href="#" onclick="filtrarPublicaciones('Pobreza')">[ Pobreza ]</a>
+                <a href="#" onclick="filtrarPublicaciones('Empleo')">[ Empleo ]</a>
+                <a href="#" onclick="filtrarPublicaciones('Energéticos')">[ Energéticos ]</a>
             </nav>   
 
     <main>
@@ -59,13 +60,243 @@ canvas { max-width: 100%; height: auto; }
             
             <div id="contenedor-publicaciones">
 
-<div class="publicacion" data-categoria="remesas" id="remesas">
+<div class="publicacion" data-categoria="Delitos" id="delitos">
+  <h2 style="text-align:center; color:#c0392b;">
+    ¿Realmente bajaron los homicidios en México?<br>
+    <small style="color:#555;">La verdad detrás de la reclasificación (Enero – Septiembre 2018 vs 2025)</small>
+  </h2>
+    <p class="fecha-publicacion">Actualizado el: 21 de noviembre de 2025</p>
+  <p style="font-size:1.15em; text-align:justify;">
+    El gobierno presume una caída histórica en <strong>homicidios dolosos</strong> a 66.1 por día en el mes de octubre de 2025.<br><br>
+    Pero al mismo tiempo mientras <strong>los homicidios dolosos + feminicidios</strong> pasan de 25,939 víctimas en 2018 (ene-sep) a 18,920 en 2025 (ene-sep) —<strong>una reducción de 
+7,019 víctimas mortales</strong>, la categoría “<strong>Otros delitos que atentan contra la vida y la integridad corporal</strong>” pasó de 5,993 a 13,079 —<strong>un aumento de 
+7,086 víctimas (+118 %)</strong>.
+  </p>
+
+  <p style="font-size:1.3em; font-weight:bold; color:#c0392b; background:#fdf2f2; padding:20px; border-left:8px solid #c0392b; border-radius:8px; text-align:center;">
+    El aumento en la categoría residual<br>
+    <span style="font-size:1.5em;">→ compensa casi perfectamente la “baja” que presume el gobierno ←</span>
+  </p>
+
+<!-- GRÁFICA APILADA (UNA BARRA POR AÑO) -->
+<div style="background:#fff; padding:30px 20px; border-radius:16px; box-shadow:0 6px 25px rgba(0,0,0,0.12); margin:40px 0;">
+  <canvas class="chart-delitos-apilada"></canvas>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Busca TODOS los canvas con clase chart-delitos-apilada (aunque solo haya uno)
+  document.querySelectorAll('.chart-delitos-apilada').forEach(function(canvas) {
+    new Chart(canvas.getContext('2d'), {
+      type: 'bar',
+      data: {
+        labels: ['Enero – Septiembre 2018', 'Enero – Septiembre 2025'],
+        datasets: [
+          { label: 'Otros delitos que atentan contra la vida', data: [5993, 13079], backgroundColor: '#3498db' },
+          { label: 'Homicidio doloso', data: [25270, 18407], backgroundColor: '#9b59b6' },
+          { label: 'Feminicidio', data: [669, 513], backgroundColor: '#e74c3c' },
+          { label: 'Homicidio culposo', data: [12918, 13674], backgroundColor: '#f1c40f' },
+          { label: 'Aborto', data: [463, 747], backgroundColor: '#95a5a6' }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          title: { display: true, text: 'Violencia letal total: casi idéntica entre 2018 y 2025', font: { size: 20, weight: 'bold' }, padding: 20 },
+          legend: { position: 'bottom' }
+        },
+        scales: {
+          x: { stacked: true },
+          y: { stacked: true, beginAtZero: true, ticks: { stepSize: 5000 } }
+        }
+      }
+    });
+  });
+});
+</script>
+
+  <!-- CUADROS ORIGINALES -->
+  <h3 style="color:#444; margin-top:50px;">Víctimas de delitos que atentan contra la vida (SESNSP)</h3>
+  <div style="overflow-x:auto; margin:30px 0;">
+    <table style="width:100%; border-collapse:collapse; background:#fff; box-shadow:0 3px 15px rgba(0,0,0,0.1); font-size:0.95em;">
+      <thead style="background:#2c3e50; color:white;">
+        <tr>
+          <th style="padding:12px; text-align:left;">Indicador</th>
+          <th style="padding:12px; text-align:center;">Ene–Sep 2018</th>
+          <th style="padding:12px; text-align:center;">Víctimas/día</th>
+          <th style="padding:12px; text-align:center;">Ene–Sep 2025</th>
+          <th style="padding:12px; text-align:center;">Víctimas/día</th>
+          <th style="padding:12px; text-align:center;">Variación</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff3e0;">
+          <td style="padding:12px;"><strong>Otros delitos contra la vida e integridad</strong></td>
+          <td style="text-align:center;"><strong>5,993</strong></td>
+          <td style="text-align:center;">21.95</td>
+          <td style="text-align:center;"><strong>13,079</strong></td>
+          <td style="text-align:center;">47.91</td>
+          <td style="text-align:center; color:#c0392b; font-size:1.1em;"><strong>+7,086</strong></td>
+        </tr>
+        <tr style="background:#ffebee;">
+          <td style="padding:12px;"><strong>Homicidios dolosos</strong></td>
+          <td style="text-align:center;"><strong>25,270</strong></td>
+          <td style="text-align:center;">92.56</td>
+          <td style="text-align:center;"><strong>18,407</strong></td>
+          <td style="text-align:center;">67.42</td>
+          <td style="text-align:center; color:#27ae60;"><strong>–6,863</strong></td>
+        </tr>
+        <tr style="background:#ffebee;">
+          <td style="padding:10px;"><strong>Feminicidio</strong></td>
+          <td style="text-align:center;"><strong>669</strong></td>
+          <td style="text-align:center;">2.45</td>
+          <td style="text-align:center;"><strong>513</strong></td>
+          <td style="text-align:center;">1.88</td>
+          <td style="text-align:center; color:#27ae60;"><strong>–156</strong></td>
+        </tr>
+        <tr style="background:#f9f9f9;">
+          <td style="padding:10px;"><strong>Homicidio culposo</strong></td>
+          <td style="text-align:center;">12,918</td>
+          <td style="text-align:center;">47.32</td>
+          <td style="text-align:center;">13,674</td>
+          <td style="text-align:center;">50.09</td>
+          <td style="text-align:center; color:#c0392b;">+756</td>
+        </tr>
+        <tr style="background:#f9f9f9;">
+          <td style="padding:10px;"><strong>Aborto</strong></td>
+          <td style="text-align:center;">463</td>
+          <td style="text-align:center;">1.70</td>
+          <td style="text-align:center;">747</td>
+          <td style="text-align:center;">2.74</td>
+          <td style="text-align:center; color:#c0392b;">+284</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- DESAPARICIONES -->
+  <h3 style="color:#444;">Desapariciones (no localizadas + localizadas muertas)</h3>
+  <div style="overflow-x:auto; margin:30px 0;">
+<p>Además el gobierno no menciona otros delitos que son de alto impacto, pero siguen aumentando, como lo son las desapariciones.</p>
+    <table style="width:100%; border-collapse:collapse; background:#fff; box-shadow:0 3px 15px rgba(0,0,0,0.1);">
+      <thead style="background:#8e44ad; color:white;">
+        <tr><th style="padding:12px; text-align:left;">Indicador</th><th style="padding:12px; text-align:center;">Ene–Sep 2018</th><th style="padding:12px; text-align:center;">Ene–Sep 2025</th><th style="padding:12px; text-align:center;">Variación</th></tr>
+      </thead>
+      <tbody style="background:#f4ecf7; font-weight:bold; text-align:center;">
+        <tr>
+          <td style="padding:12px; text-align:left;">Personas desaparecidas no localizadas + localizadas muertas<br><small>(≈48 % de todas las carpetas)</small></td>
+          <td>7,635</td>
+          <td>10,168</td>
+          <td style="color:#c0392b;">+2,533 (+33 %)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="background:#fef9e7; padding:18px; border-left:6px solid #f39c12; border-radius:8px; font-size:1.1em;">
+    <strong>Nota clave:</strong> El gobierno dice que “más del 90 % de desaparecidos se localizan”. Realidad: <strong>solo el 52 % de las carpetas terminan en personas localizadas vivas</strong>. El resto queda en el limbo o como cadáveres que muchas veces <u>no se clasifican como homicidio doloso</u>.
+  </p>
+
+  <h3 style="text-align:center; color:#2c3e50; margin:60px 0 20px; font-size:2em;">
+    Conclusión
+  </h3>
+  <p style="text-align:center; font-size:1.5em; font-weight:bold; color:#c0392b;">
+    No hay menos muertos.<br>
+    Solo hay más maquillaje estadístico.
+  </p>
+
+  <p style="text-align:center; color:#777; font-size:0.9em; margin-top:50px;">
+    Fuente: SESNSP – Datos Abiertos de Incidencia Delictiva (Fuero Común)<br>
+    Cálculo diario: Total ÷ 273 días (1 ene – 30 sep)
+  </p>
+
+  <!-- SCRIPTS
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('graficaApilada').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Enero – Septiembre 2018', 'Enero – Septiembre 2025'],
+        datasets: [
+          {
+            label: 'Otros delitos que atentan contra la vida',
+            data: [5993, 13079],
+            backgroundColor: '#3498db',
+            borderColor: '#2980b9',
+            borderWidth: 1
+          },
+          {
+            label: 'Homicidio doloso',
+            data: [25270, 18407],
+            backgroundColor: '#9b59b6',
+            borderColor: '#8e44ad',
+            borderWidth: 1
+          },
+          {
+            label: 'Feminicidio',
+            data: [669, 513],
+            backgroundColor: '#e74c3c',
+            borderColor: '#c0392b',
+            borderWidth: 1
+          },
+          {
+            label: 'Homicidio culposo',
+            data: [12918, 13674],
+            backgroundColor: '#f1c40f',
+            borderColor: '#f39c12',
+            borderWidth: 1
+          },
+          {
+            label: 'Aborto',
+            data: [463, 747],
+            backgroundColor: '#95a5a6',
+            borderColor: '#7f8c8d',
+            borderWidth: 1
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Violencia letal total: casi idéntica entre 2018 y 2025',
+            font: { size: 20, weight: 'bold' },
+            padding: 20
+          },
+          subtitle: {
+            display: true,
+            text: 'Lo que baja en homicidios dolosos sube en “Otros delitos contra la vida” → Reclasificación evidente',
+            font: { size: 15 },
+            color: '#c0392b',
+            padding: { bottom: 20 }
+          },
+          legend: { position: 'bottom' },
+          tooltip: { mode: 'index', intersect: false }
+        },
+        scales: {
+          x: { stacked: true },
+          y: { 
+            stacked: true,
+            beginAtZero: true,
+            ticks: { stepSize: 5000 },
+            title: { display: true, text: 'Número de víctimas', font: { size: 14 } }
+          }
+        }
+      }
+    });
+  </script>
+ -->
+    <p class="back-to-top"><a href="#inicio">↑ Volver al inicio</a></p>
+</div>
+
+<div class="publicacion" data-categoria="Remesas" id="remesas">
     <h2>Remesas recibidas del Extranjero: Análisis por Sexenio</h2>
     <p class="fecha-publicacion">Actualizado el: 07 de noviembre de 2025</p>
 
 <!-- GRÁFICA INTERACTIVA -->
-    <canvas id="graficaRemesas"></canvas>
-
+<canvas id="graficaRemesas"></canvas>
     <script>
       const ctx = document.getElementById('graficaRemesas').getContext('2d');
       new Chart(ctx, {
@@ -123,7 +354,7 @@ canvas { max-width: 100%; height: auto; }
     <p class="back-to-top"><a href="#inicio">↑ Volver al inicio</a></p>
 </div>
 
-<div class="publicacion" data-categoria="deuda" id="deuda">
+<div class="publicacion" data-categoria="Deuda" id="deuda">
     <h2>Deuda Pública de México: Análisis por Sexenio</h2> 
     <p class="fecha-publicacion">Actualizado el: 31 de octubre de 2025</p>
     <p>
@@ -217,7 +448,7 @@ El Saldo Histórico de los Requerimientos Financieros del Sector Público (SHRFS
 </div>
 
 
-                <div class="publicacion" data-categoria="inflacion" id="inflacion">
+                <div class="publicacion" data-categoria="Inflación" id="inflacion">
                     <h2>Inflación en México: Comparativa por Sexenio</h2>
 
                     <p class="fecha-publicacion">Actualizado el: 26 de Octubre de 2025</p>
@@ -276,7 +507,7 @@ El Saldo Histórico de los Requerimientos Financieros del Sector Público (SHRFS
                 </div>
 
 
-<div class="publicacion" data-categoria="energeticos" id="refinacion">
+<div class="publicacion" data-categoria="Energéticos" id="refinacion">
     <h2>Energéticos en México: Refinación</h2>
     <p class="fecha-publicacion">Actualizado el: 28 de Septiembre de 2025</p>
     <p>
@@ -322,7 +553,7 @@ El Saldo Histórico de los Requerimientos Financieros del Sector Público (SHRFS
 
 
 
-<div class="publicacion" data-categoria="pobreza" id="multidimensional">
+<div class="publicacion" data-categoria="Pobreza" id="multidimensional">
     <h2>Indicadores de Pobreza Multidimensional por Sexenio</h2>
     <p class="fecha-publicacion">Actualizado el: 17 de agosto de 2025</p>
 
@@ -394,7 +625,7 @@ El Saldo Histórico de los Requerimientos Financieros del Sector Público (SHRFS
 
 
 
-                <div class="publicacion" data-categoria="inflacion" id="inflacion vs usd">
+                <div class="publicacion" data-categoria="Inflación" id="inflacion vs usd">
 <h2 id="anomalia">Análisis: El Desacoplamiento entre el Tipo de Cambio y la Inflación</h2>
                     <p class="fecha-publicacion">Actualizado el: 09 de Julio de 2025</p>
 <p>
@@ -425,7 +656,7 @@ un tipo de cambio artificialmente "barato" o "caro", sino uno estable y competit
 <hr>
                 </div>
 
-<div class="publicacion" data-categoria="empleo" id="empleo">
+<div class="publicacion" data-categoria="Empleo" id="empleo">
     <h2>Empleo y Salario Mínimo en México por Sexenio</h2>
 
     <p class="fecha-publicacion">Actualizado el: 5 de julio de 2025</p>
@@ -509,7 +740,7 @@ un tipo de cambio artificialmente "barato" o "caro", sino uno estable y competit
 </div>
 
 
-                <div class="publicacion" data-categoria="energeticos" id="produccion">
+                <div class="publicacion" data-categoria="Energéticos" id="produccion">
 
                     <!-- H2 movido aquí adentro -->
                     <h2>Energéticos en México: Producción de PEMEX</h2>
@@ -558,7 +789,7 @@ NOTA: Los ingresos aquí estimados no incluyen costos de extracción ni de expor
                     <br>
 		</div>
 
-                <div class="publicacion" data-categoria="pobreza">
+                <div class="publicacion" data-categoria="Pobreza" id="pobreza">
                     <!-- Título ahora es H2 para correcta jerarquía -->
                     <h2 id="11millones">
                     Análisis: Sheinbaum presume reducción de pobreza, pero Banco Mundial proyecta estancamiento
@@ -660,7 +891,7 @@ NOTA: Los ingresos aquí estimados no incluyen costos de extracción ni de expor
                     <p class="back-to-top"><a href="#inicio">↑ Volver al inicio</a></p>
                 </div>
 
-                <div class="publicacion" data-categoria="fobaproa">
+                <div class="publicacion" data-categoria="FOBAPROA" id="fobaproa">
                     <!-- H2 movido aquí adentro, reemplazando el H3 anterior -->
                     <h2>¿Cuánto se ha pagado de FOBAPROA con los Impuestos de los Contribuyentes?</h2>
                     <p class="fecha-publicacion">Publicado el: 1 de junio de 2025</p>
@@ -739,7 +970,7 @@ NOTA: Los ingresos aquí estimados no incluyen costos de extracción ni de expor
                     <p class="back-to-top"><a href="#inicio">↑ Volver al inicio</a></p>
                 </div>
 
-                <div class="publicacion" data-categoria="deficits">
+                <div class="publicacion" data-categoria="Déficits" id="deficits">
                     <!-- H2 movido aquí adentro -->
                     <h2>Déficits Fiscales en México: Comparativa por Sexenio</h2>
                     <p>
@@ -785,7 +1016,7 @@ NOTA: Los ingresos aquí estimados no incluyen costos de extracción ni de expor
                     <p class="back-to-top"><a href="#inicio">↑ Volver al inicio</a></p>
                 </div>
                 
-                <div class="publicacion" data-categoria="pib">
+                <div class="publicacion" data-categoria="PIB" id="pib">
                     <!-- H2 movido aquí adentro -->
                     <h2>Crecimiento del PIB en México por Sexenio</h2>
                     <p>
@@ -875,7 +1106,7 @@ NOTA: Los ingresos aquí estimados no incluyen costos de extracción ni de expor
                     <br>
                 </div>
                 
-                <div class="publicacion" data-categoria="ied">
+                <div class="publicacion" data-categoria="IED" id="ied">
                     <!-- H2 movido aquí adentro -->
                     <h2>Inversión Extranjera Directa (IED) en México por Sexenio</h2>
                     <p>
@@ -919,7 +1150,7 @@ NOTA: Los ingresos aquí estimados no incluyen costos de extracción ni de expor
                     <p class="back-to-top"><a href="#inicio">↑ Volver al inicio</a></p>
                 </div>
 
-                <div class="publicacion" data-categoria="pobreza">
+                <div class="publicacion" data-categoria="Pobreza" id="pobreza">
                     <!-- Este H2 ya estaba bien, solo lo mantengo -->
                     <h2>Pobreza en México: Evolución por Sexenio según CONEVAL y HDI</h2>
                     <p>
