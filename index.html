@@ -60,6 +60,156 @@ canvas { max-width: 100%; height: auto; }
             
             <div id="contenedor-publicaciones">
 
+<div class="publicacion" data-categoria="Energéticos" id="huachicol">
+  <h2 style="text-align:center; color:#c0392b;">
+    Robo de Combustible en México<br>
+    <small style="color:#555;">La verdad detrás de la Reducción en el Robo de Combustibles</small>
+  </h2>
+    <p class="fecha-publicacion">Actualizado el: 30 de noviembre de 2025</p>
+
+<p>
+<strong>Luisa María Alcalde (26 de septiembre de 2025, Oaxaca, en un evento público como dirigente nacional de MORENA):</strong> "... o ésto que ahora le han llamado Huachicol Fiscal, pero que en realidad es 
+contrabando de combustible que viene del extranjero ¿no? o sea, lo pretenden hasta le ponen el nombre para dar la idea de que se trataba de lo que antes existía que son las fugas en los 
+ductos ¡no! eso se acabó, prácticamente se acabó con el presidente AMLO, como él lo declaró en su momento, porque había toda una cadena de corrupción en donde se ordeñaba los ductos de PEMEX ..."
+</p>
+
+<!-- Gráfico SIMPLE: solo datos reales -->
+<div style="max-width: 900px; margin: 40px auto; padding: 20px; background:#fff; border-radius:12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+<canvas id="huachicolSimple" 
+        aria-label="Gráfico de barras: robo de combustible en México 2018-2024 (datos corregidos). 2018: 20 700; 2019: 6 400; 2020: 4 800; 2021: 3 600; 2022: 12 600; 2023: 15 400; 2024: 17 000 barriles diarios promedio."
+        role="img">
+</canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx2 = document.getElementById('huachicolSimple').getContext('2d');
+
+  new Chart(ctx2, {
+    type: 'bar',
+    data: {
+      labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+      datasets: [{
+        label: 'Barriles diarios de combustible robados',
+        data: [20700, 6400, 4800, 3600, 12600, 15400, 17000],
+        backgroundColor: '#c0392b',
+        borderColor: '#a93226',
+        borderWidth: 1,
+        borderRadius: 8,
+        barThickness: 50,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },  // oculta la leyenda
+        title: {
+          display: true,
+          text: 'Robo de Combustible en México – Barriles diarios promedio',
+          font: { size: 20, weight: 'bold' },
+          color: '#2c3e50',
+          padding: { bottom: 30 }
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return ' ' + context.parsed.y.toLocaleString() + ' barriles/día';
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 25000,
+          ticks: {
+            stepSize: 5000,
+            callback: value => value >= 1000 ? (value/1000) + 'k' : value
+          },
+          grid: { color: '#ecf0f1' }
+        },
+        x: {
+          grid: { display: false }
+        }
+      }
+    }
+  });
+</script>
+
+<style>
+  #huachicolSimple { height: 480px !important; }
+</style>
+
+    <table>
+        <caption>Barriles de Combustible Robado en Promedio Diariamente, Reportados a Entidades Reguladoras</caption>
+        <thead>
+            <tr>
+                <th>Año</th>
+                <th>SEC</th>
+                <th>Correción</th>
+                <th>Observaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2018</td>
+                <td>55,900</td>
+                <td>20,700</td>
+                <td>Pérdidas Totales 2018: $39,388 mdp<br>Corrección en el Informe al SEC 2019</td>
+            </tr>
+            <tr>
+                <td>2019</td>
+                <td>2,600</td>
+                <td>6,400</td>
+                <td>Pérdidas Totales 2019: $4,644 mdp<br>Corrección en el Informe al SEC 2020</td>
+            </tr>
+            <tr>
+                <td>2020</td>
+                <td>4,800</td>
+                <td></td>
+                <td>Pérdidas Totales 2020: $4,279 mdp</td>
+            </tr>    
+            <tr>
+                <td>2021</td>
+                <td>3,600</td>
+                <td></td>
+                <td>Pérdidas Totales 2021: $6,791 mdp</td>
+            </tr>                 
+            <tr>
+                <td>2022</td>
+                <td>12,600</td>
+                <td></td>
+                <td>Pérdidas Totales 2022: $19,891 mdp</td>
+            </tr>     
+            <tr>
+                <td>2023</td>
+                <td>15,400</td>
+                <td></td>
+                <td>Pérdidas Totales 2023: $20,168 mdp</td>
+            </tr>     
+            <tr>
+                <td>2024</td>
+                <td>17,000</td>
+                <td></td>
+                <td>Pérdidas Totales 2024: $20,529 mdp.<br> El <strong>30 de septiembre de 2024</strong> se le informó a la CNVB que el robo en promedio al Tercer Trimestre de 2024 era de 4,700. Los 17,000 del 
+Informe al SEC 2024 se publicaron el <strong>30 de abril de 2025.</strong></td>
+            </tr>     
+        </tbody>
+    </table>
+
+  <p style="text-align:center; font-size:1.5em; font-weight:bold; color:#c0392b;">
+¿Reducción real o reetiquetado?<br> Los números hablan: el 'fin del huachicol' no cuadra con las pérdidas crecientes de Pemex.
+  </p>
+
+  <p style="text-align:center; color:#777; font-size:0.9em; margin-top:50px;">
+    Fuente: <a href="https://www.pemex.com/ri/reguladores/Paginas/default.aspx">www.pemex.com > Finanzas > Información a Reguladores</a>
+  </p>
+
+    <p class="back-to-top"><a href="#inicio">↑ Volver al inicio</a></p>
+
+</div>
+
 <div class="publicacion" data-categoria="Delitos" id="delitos">
   <h2 style="text-align:center; color:#c0392b;">
     ¿Realmente bajaron los homicidios en México?<br>
@@ -1098,7 +1248,7 @@ NOTA: Los ingresos aquí estimados no incluyen costos de extracción ni de expor
         </section>
 
         <address>
-            <p class="contacto"><strong>Consultas, quejas, aclaraciones: eramirezr@ymail.com</strong></p>
+            <p class="contacto"><strong>Consultas, quejas, aclaraciones: datos.sin.vaselina@gmail.com</strong></p>
         </address>
 
     </main>
