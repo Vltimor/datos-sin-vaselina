@@ -73,7 +73,7 @@ contrabando de combustible que viene del extranjero ¿no? o sea, lo pretenden ha
 ductos ¡no! eso se acabó, prácticamente se acabó con el presidente AMLO, como él lo declaró en su momento, porque había toda una cadena de corrupción en donde se ordeñaba los ductos de PEMEX ..."
 </p>
 
-<!-- Gráfico SIMPLE: solo datos reales -->
+<!-- Gráfico HUACHICOL – versión móvil perfecta -->
 <div style="max-width: 900px; margin: 40px auto; padding: 20px; background:#fff; border-radius:12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
 <canvas id="huachicolSimple" 
         aria-label="Gráfico de barras: robo de combustible en México 2018-2024 (datos corregidos). 2018: 20 700; 2019: 6 400; 2020: 4 800; 2021: 3 600; 2022: 12 600; 2023: 15 400; 2024: 17 000 barriles diarios promedio."
@@ -96,14 +96,18 @@ ductos ¡no! eso se acabó, prácticamente se acabó con el presidente AMLO, com
         borderColor: '#a93226',
         borderWidth: 1,
         borderRadius: 8,
-        barThickness: 50,
+        // ← Aquí está la clave para móviles
+        barThickness: 'flex',        // permite que se adapte
+        maxBarThickness: 52,         // máximo 52 px (queda perfecto en móvil y escritorio)
+        categoryPercentage: 0.8,     // usa el 80 % del espacio entre años
+        barPercentage: 0.9,
       }]
     },
     options: {
       responsive: true,
       maintainAspectRatio: false,
       plugins: {
-        legend: { display: false },  // oculta la leyenda
+        legend: { display: false },
         title: {
           display: true,
           text: 'Robo de Combustible en México – Barriles diarios promedio',
@@ -111,13 +115,6 @@ ductos ¡no! eso se acabó, prácticamente se acabó con el presidente AMLO, com
           color: '#2c3e50',
           padding: { bottom: 30 }
         },
-        tooltip: {
-          callbacks: {
-            label: function(context) {
-              return ' ' + context.parsed.y.toLocaleString() + ' barriles/día';
-            }
-          }
-        }
       },
       scales: {
         y: {
@@ -127,10 +124,13 @@ ductos ¡no! eso se acabó, prácticamente se acabó con el presidente AMLO, com
             stepSize: 5000,
             callback: value => value >= 1000 ? (value/1000) + 'k' : value
           },
-          grid: { color: '#ecf0f1' }
         },
         x: {
-          grid: { display: false }
+          grid: { display: false },
+          ticks: {
+            maxRotation: 0,
+            font: { size: window.innerWidth < 480 ? 12 : 14 }
+          }
         }
       }
     }
@@ -138,7 +138,10 @@ ductos ¡no! eso se acabó, prácticamente se acabó con el presidente AMLO, com
 </script>
 
 <style>
-  #huachicolSimple { height: 480px !important; }
+  #huachicolSimple { 
+    height: 460px !important; 
+    width: 100% !important;
+  }
 </style>
 
     <table>
