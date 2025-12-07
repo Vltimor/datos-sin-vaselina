@@ -61,6 +61,20 @@ canvas {
   h1 { font-size: 2em; }
   .grid { grid-template-columns: 1fr; }
   table, canvas { font-size: 0.9em; }
+
+body {
+    padding: 0 15px !important;   /* ← espacio lateral en móvil */
+  }
+  h1, h2, h3, p, table, img, .destacado, .caja-nota, .tabla-principal {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  img.grafica-principal {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
 }
 
 /* Footer y botones */
