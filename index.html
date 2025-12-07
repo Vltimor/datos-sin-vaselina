@@ -4,10 +4,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Explora datos económicos y sociales de México por sexenio presidencial. Consulta estadísticas de PIB, deuda pública, inflación, pobreza y más, con fuentes oficiales (INEGI, BANXICO)." />
-  <title>Datos Sin Vaselina: Datos Económicos y Sociales por Sexenio (PIB, Deuda, Inflación)</title>
+
+  <title>Homicidios México 2025, Deuda Pública, Inflación y Remesas | Datos Sin Vaselina</title>
+
+  <meta name="description" content="Datos oficiales 2025 sin maquillaje: homicidios dolosos reclasificados, deuda pública por sexenio (+860%), inflación AMLO, remesas récord y pobreza CONEVAL. Fuentes: INEGI, BANXICO, SESNSP." />
+
+<!-- PALABRAS CLAVE (aún funcionan en 2025 para búsquedas mexicanas) -->
+<meta name="keywords" content="homicidios 2025, homicidios dolosos México, deuda pública México 2025, inflación por sexenio, remesas 2025, pobreza México, PIB por sexenio, Datos Sin Vaselina, SESNSP, INEGI, BANXICO" />
+
+<!-- OPEN GRAPH (para que en WhatsApp, X, Facebook y Telegram salga precioso) -->
+  <meta property="og:title" content="Homicidios México 2025, Deuda Pública e Inflación | Datos Sin Vaselina" />
+  <meta property="og:description" content="El truco de los homicidios 2025, deuda +860% y los datos que nadie publica. Todo con fuentes oficiales." />
+  <meta property="og:image" content="https://vltimor.github.io/datos-sin-vaselina/imagen-portada.jpg" /> <!-- crea esta imagen 1200x630 con tu gráfica más fuerte -->
+  <meta property="og:url" content="https://vltimor.github.io/datos-sin-vaselina/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_MX" />
+  
+  <!-- TWITTER CARDS (X) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Homicidios México 2025, Deuda e Inflación | Datos Sin Vaselina" />
+  <meta name="twitter:description" content="Datos oficiales sin vaselina: el truco de los homicidios, deuda récord y más." />
+  <meta name="twitter:image" content="https://vltimor.github.io/datos-sin-vaselina/imagen-portada.jpg" />
+  
+  <!-- FAVICON (opcional pero profesional) -->
+  <link rel="icon" href="https://vltimor.github.io/datos-sin-vaselina/favicon.ico" type="image/x-icon" />
+
   <link rel="stylesheet" href="styles.css">
-  <meta name="keywords" content="datos económicos México, sexenios, deuda pública, inflación, pobreza, PIB, AMLO, Fox, Calderón, Peña, Sheinbaum">
   <meta name="author" content="Datos Sin Vaselina">
   <link rel="canonical" href="https://vltimor.github.io/datos-sin-vaselina/">
   <style>
@@ -24,10 +46,20 @@
 canvas { max-width: 100%; height: auto; }
     .container { width: 90%; margin: auto; font-family: Arial; }
   </style>
-</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-539R7EQE3N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-539R7EQE3N');
+</script>
 
 <!--  Librería Javascript para gráficos -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
 
 <body>
     <header id="inicio">
@@ -59,6 +91,71 @@ canvas { max-width: 100%; height: auto; }
             <h2 id="titulo-seccion">Publicaciones Recientes</h2>
             
             <div id="contenedor-publicaciones">
+
+                <div class="publicacion" data-categoria="Inflación"  id="anomalia">
+<h2 style="text-align:center; color:#c0392b;">
+Análisis: El Desacoplamiento entre el Tipo de Cambio y la Inflación<br>
+    <small style="color:#555;">Relación con Protestas Campesinas</small>
+</h2>
+                    <p class="fecha-publicacion">Actualizado el: 04 de diciembre de 2025</p>
+
+<img src="Tipo_Cambio_Inflacion.png" alt="Gráfico que muestra la anomalía entre el tipo de cambio USD/MXN y la inflación en México" width="100%" height="">
+<p>
+<strong>Fuentes:</strong><br>
+<a href="https://www.banxico.org.mx/SieInternet/consultarDirectorioInternetAction.do?sector=6&accion=consultarCuadro&idCuadro=CF102&locale=es">www.banxico.org.mx > Tipo de Cambio FIX</a><br>
+<a href="https://www.inegi.org.mx/app/indicesdepreciosv2/Estructura.aspx?idEstructura=112001600090&T=%C3%8Dndices%20de%20Precios%20al%20Consumidor&ST=INPC%20(mensual)">INPC - INEGI.</a><br>
+Tipo de cambio dólar “ajustado a la inflación”: promedio anual de 2000 expresado en pesos de cada año usando el INPC (INPC dic de cada año / INPC dic‑2000 × TC promedio 2000).
+</p>
+
+<p><strong>La línea morada muestra cuánto debería valer hoy el dólar si siguiera la trayectoria de precios internos desde 2000; la verde es el promedio anual observado.</strong></p>
+
+
+<p>El gráfico no miente: nunca el peso había estado tan fuerte para mantener relativamente baja la inflación (los gobiernos obradoristas tienen la inflación más elevada de este siglo):</p>
+
+<ul>
+<li>Promedio anual del dólar 2025 (Promedio enero‑octubre 2025 tipo de cambio fix Banxico): $19.38 pesos, cercano a niveles de 2019.</li>
+<li>Inflación noviembre 2025 (primera quincena): Alrededor de 3.6% anual.</li>
+</ul>
+
+<p>Este “desacoplamiento” entre tipo de cambio e inflación es la cara bonita de la moneda. La cara fea la pagan los productores mexicanos.</p>
+
+<p><strong>Un dólar barato = importaciones baratas = precios internos de granos colapsados.</strong> Resultado directo:</p>
+
+<ul>
+<li>Maíz blanco en el campo: menos de $3,500 pesos por tonelada (costo de producción $5,500–$6,000).</li>
+<li>Se proyectan importaciones históricamente altas de maíz para 2025.</li>
+<li>Precios de sorgo, trigo y frijol también en el suelo.</li>
+</ul>
+
+
+<p>Por eso el campo estalló. Desde octubre 2025, campesinos de al menos 17 estados han bloqueado carreteras, aduanas y vías férreas exigiendo precios de garantía y freno a las importaciones. El grito es el mismo en Sinaloa, Michoacán, Chihuahua o Zacatecas.</p>
+
+<p>Y no es sólo el campo. El mismo dólar barato que mantiene la inflación relativamente baja está destruyendo competitividad en:</p>
+
+<ul>
+<li>la industria automotriz (caída de exportaciones de vehículos cercana a -6 % interanual a octubre 2025),</li>
+<li>las maquiladoras del norte,</li>
+<li>el acero y los textiles.</li>
+</ul>
+
+<p>Consecuencia macro: las últimas proyecciones para el PIB 2025 rondan apenas el 0.5% y han sido recortadas por OCDE, Banxico y SHCP.
+México crece menos que casi toda América Latina porque su planta productiva está siendo sustituida por productos extranjeros que entran a precio de remate.</p>
+
+<p>El gráfico lo resume sin piedad, el mismo fenómeno que en la gráfica parece una buena noticia cambiaria es el que en el territorio se traduce en bloqueos y pérdidas:</p>
+
+<ul>
+<li>Línea verde (dólar) muy por debajo de la inflación → celebración oficial.</li>
+<li>Economía real (producción y empleo rural e industrial) cayendo → silencio oficial.</li>
+</ul>
+
+<p>Mientras el gobierno presume inflación controlada y salario mínimo al alza, el campo mexicano bloquea carreteras y la industria pierde terreno.
+El superpeso es un éxito contable… y una tragedia productiva.</p>
+
+<p style="text-align:center; color:#777; font-size:0.9em; margin-top:50px;">Datos: Banxico, INEGI, SADER, OCDE, Trending Economics.</p>
+
+<p class="back-to-top"><a href="#inicio">↑ Volver al inicio</a></p>
+
+                </div>
 
 <div class="publicacion" data-categoria="Energéticos" id="huachicol">
   <h2 style="text-align:center; color:#c0392b;">
@@ -679,40 +776,6 @@ El Saldo Histórico de los Requerimientos Financieros del Sector Público (SHRFS
     <p class="back-to-top"><a href="#inicio">↑ Volver al inicio</a></p>
 </div>
 
-
-
-
-
-                <div class="publicacion" data-categoria="Inflación" id="inflacion vs usd">
-<h2 id="anomalia">Análisis: El Desacoplamiento entre el Tipo de Cambio y la Inflación</h2>
-                    <p class="fecha-publicacion">Actualizado el: 09 de Julio de 2025</p>
-<p>
-El siguiente gráfico ilustra una divergencia notable que comenzó alrededor de 2021: mientras la inflación acumulada (línea morada) mantenía su 
-tendencia alcista, el tipo de cambio promedio (línea verde) comenzó a apreciarse, un fenómeno que se conoció popularmente como el "Super Peso".
-</p>
-<p>
-Este desacoplamiento no es inédito. Se observó un patrón similar entre 2009 y 2013, un periodo que también mostró un peso relativamente fuerte frente a 
-una inflación creciente. Como muestra la gráfica, aquel periodo fue seguido por una importante "corrección" o depreciación del peso, que alcanzó casi el 
-50% en los años siguientes. La historia sugiere que las divergencias prolongadas entre estos dos indicadores tienden a resolverse eventualmente, a 
-menudo con ajustes abruptos en el tipo de cambio.
-</p>
-<p>
-Esta distorsión del tipo de cambio también generó una percepción engañosa del crecimiento económico. Entre 2022 y 2023, medios y figuras políticas celebraron que 
-México se había convertido en la "economía número 12 del mundo" basándose en el PIB nominal medido en dólares. Sin embargo, este aparente ascenso fue 
-un espejismo causado por la fortaleza artificial del peso. Una métrica más fiable, el <strong>PIB por Paridad de Poder de Compra (PPC)</strong>, que ajusta las 
-diferencias en el costo de vida y anula las distorsiones cambiarias, mostró que México no mejoró su posición en el ranking mundial durante ese mismo 
-periodo. El FMI y el Banco Mundial utilizan el PPC precisamente para realizar comparaciones internacionales más justas.
-</p>
-<p>
-Si bien un tipo de cambio fuerte puede beneficiar temporalmente a los consumidores de bienes importados, presenta riesgos significativos para la 
-economía en general. Un "dólar barato" reduce la competitividad de las exportaciones mexicanas, encarece el turismo extranjero en el país y disminuye el 
-valor en pesos de las remesas que reciben millones de familias. Por el contrario, una moneda excesivamente débil erosiona el poder adquisitivo. El ideal no es 
-un tipo de cambio artificialmente "barato" o "caro", sino uno estable y competitivo que refleje los fundamentales económicos del país.
-</p>
-<img src="Tipo_Cambio_Inflacion.png" alt="Gráfico que muestra la anomalía entre el tipo de cambio USD/MXN y la inflación en México" width="100%" height="">
-<p class="back-to-top"><a href="#inicio">↑ Volver al inicio</a></p>
-<hr>
-                </div>
 
 <div class="publicacion" data-categoria="Empleo" id="empleo">
     <h2>Empleo y Salario Mínimo en México por Sexenio</h2>
