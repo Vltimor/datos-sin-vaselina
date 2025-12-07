@@ -1,0 +1,87 @@
+/* styles.css – Datos Sin Vaselina 2025 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* { box-sizing: border-box; }
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+header, main, footer { max-width: 1100px; margin: 0 auto; padding: 20px; }
+h1 { font-size: 2.4em; color: #c0392b; text-align: center; margin: 40px 0 20px; }
+h2 { font-size: 1.8em; color: #c0392b; border-bottom: 3px solid #e74c3c; padding-bottom: 10px; }
+h3 { color: #444; }
+
+/* Grid de tarjetas en la página principal */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin: 50px 0;
+}
+.card {
+  background: white;
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s;
+}
+.card:hover { transform: translateY(-8px); }
+.card a { color: #c0392b; text-decoration: none; font-weight: bold; font-size: 1.4em; }
+.card a:hover { color: #e74c3c; }
+
+/* Tablas bonitas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 30px 0;
+  background: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+th { background: #2c3e50; color: white; padding: 15px; }
+td { padding: 12px; text-align: center; border-bottom: 1px solid #ddd; }
+tr:hover { background: #f1f1f1; }
+
+/* Gráficas */
+canvas { 
+  max-width: 100%; 
+  height: auto !important; 
+  background: white; 
+  padding: 20px; 
+  border-radius: 12px; 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+  h1 { font-size: 2em; }
+  .grid { grid-template-columns: 1fr; }
+  table, canvas { font-size: 0.9em; }
+}
+
+/* Footer y botones */
+footer { text-align: center; color: #777; margin-top: 80px; padding: 30px 0; border-top: 1px solid #eee; }
+a { color: #c0392b; }
+a:hover { color: #e74c3c; }
+.back-to-top { text-align: center; margin: 50px 0; }
+
+/* Clases específicas para la página de Delitos */
+.subtitulo { font-size: 1.3em; color: #555; text-align: center; margin: 20px 0; }
+.fecha { text-align: center; color: #777; margin-bottom: 30px; }
+.resumen { font-size: 1.2em; text-align: justify; }
+.destacado { font-size: 1.4em; font-weight: bold; text-align: center; background: #fdf2f2; padding: 25px; border-left: 10px solid #c0392b; border-radius: 10px; margin: 40px 0; }
+.destacado .grande { font-size: 1.7em; display: block; margin-top: 10px; }
+.grafica-principal { display: block; margin: 40px auto; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+.nota-roja { color: #c0392b; font-weight: bold; text-align: center; margin: 20px 0; }
+.otros-delitos { background: #fff3e0 !important; }
+.homicidios { background: #ffebee !important; }
+.aumento { color: #c0392b; font-weight: bold; }
+.baja { color: #27ae60; font-weight: bold; }
+.caja-nota { background: #fef9e7; padding: 20px; border-left: 8px solid #f39c12; border-radius: 8px; margin: 40px 0; font-size: 1.1em; }
+.conclusion-titulo { text-align: center; color: #2c3e50; font-size: 2.2em; margin: 80px 0 30px; }
+.conclusion { text-align: center; font-size: 2em; font-weight: bold; color: #c0392b; margin: 40px 0; }
+.fuente { text-align: center; color: #777; font-size: 0.9em; margin: 50px 0; }
