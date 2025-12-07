@@ -7,10 +7,11 @@ body {
   background: #f8f9fa;
   color: #333;
   line-height: 1.6;
-  margin: 0;
-  padding: 0;
+  margin: 0 auto; /* Centra el body si tiene un max-width */
+  max-width: 1180px; /* ¡NUEVO! Define el ancho total del área de contenido */
+  padding: 0 40px; /* ¡NUEVO! Padding de 40px a los lados en desktop */
 }
-header, main, footer { max-width: 1100px; margin: 0 auto; padding: 20px; }
+header, main, footer { max-width: 1100px; margin: 0 auto; padding: 20px 0; } /* Ajustado: Padding lateral se remueve aquí */
 h1 { font-size: 2.4em; color: #c0392b; text-align: center; margin: 40px 0 20px; }
 h2 { font-size: 1.8em; color: #c0392b; border-bottom: 3px solid #e74c3c; padding-bottom: 10px; }
 h3 { color: #444; }
@@ -63,7 +64,8 @@ canvas {
   table, canvas { font-size: 0.9em; }
 
 body {
-    padding: 0 15px !important;   /* ← espacio lateral en móvil */
+    padding: 0 15px !important;   /* ← Mantiene el padding más estrecho para móvil */
+    max-width: none; /* Desactiva el max-width en móvil */
   }
   h1, h2, h3, p, table, img, .destacado, .caja-nota, .tabla-principal {
     max-width: 100%;
@@ -75,7 +77,8 @@ body {
     height: auto !important;
   }
 }
-}
+/* La llave de cierre del media query que estaba duplicada al final ha sido corregida */
+
 
 /* Footer y botones */
 footer { text-align: center; color: #777; margin-top: 80px; padding: 30px 0; border-top: 1px solid #eee; }
