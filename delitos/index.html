@@ -1,115 +1,139 @@
-/* styles.css – Datos Sin Vaselina 2025 */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homicidios Dolosos México 2025 – Reclasificación SESNSP | Datos Sin Vaselina</title>
+  <meta name="description" content="Homicidios dolosos México 2025: la reclasificación que hace que parezca que bajaron. Datos oficiales SESNSP enero-septiembre 2018 vs 2025.">
+  <meta name="keywords" content="homicidios 2025, homicidios dolosos México, reclasificación homicidios, SESNSP 2025">
 
-* { box-sizing: border-box; }
-body {
-  font-family: 'Inter', Arial, sans-serif;
-  background: #f8f9fa;
-  color: #333;
-  line-height: 1.6;
-  margin: 0 auto; /* Centra el body si tiene un max-width */
-  max-width: 1180px; /* Define el ancho total del área de contenido */
-  padding: 0 40px; /* Padding de 40px a los lados en desktop */
-}
-header, main, footer { max-width: 1100px; margin: 0 auto; padding: 20px 0; }
-h1 { font-size: 2.4em; color: #c0392b; text-align: center; margin: 40px 0 20px; }
-h2 { font-size: 1.8em; color: #c0392b; border-bottom: 3px solid #e74c3c; padding-bottom: 10px; }
-h3 { color: #444; }
+  <!-- CSS EXTERNO (¡OBLIGATORIO!) -->
+  <link rel="stylesheet" href="../styles2.css">
 
-/* Grid de tarjetas en la página principal */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  margin: 50px 0;
-}
-.card {
-  background: white;
-  padding: 30px 20px;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  text-align: center;
-  transition: transform 0.3s;
-}
-.card:hover { transform: translateY(-8px); }
-.card a { color: #c0392b; text-decoration: none; font-weight: bold; font-size: 1.4em; }
-.card a:hover { color: #e74c3c; }
+  <!-- Analytics y Chart.js -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-539R7EQE3N"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-539R7EQE3N');</script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
 
-/* Tablas bonitas */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 30px 0;
-  background: white;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-th { background: #2c3e50; color: white; padding: 15px; }
-td { padding: 12px; text-align: center; border-bottom: 1px solid #ddd; }
-tr:hover { background: #f1f1f1; }
+  <h1>¿Realmente bajaron los homicidios en México?</h1>
+  <p class="subtitulo">La verdad detrás de la reclasificación (Enero – Septiembre 2018 vs 2025)</p>
+  <p class="fecha">Actualizado el: 21 de noviembre de 2025</p>
 
-/* Gráficas */
-canvas { 
-  max-width: 100%; 
-  height: auto !important; 
-  background: white; 
-  padding: 20px; 
-  border-radius: 12px; 
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
+  <p class="resumen">
+    El gobierno presume una caída histórica en <strong>homicidios dolosos</strong> a 66.1 por día en octubre de 2025.<br><br>
+    Pero mientras <strong>homicidios dolosos + feminicidios</strong> pasan de 25,939 víctimas (2018) a 18,920 (2025) —<strong>−7,019 víctimas</strong>—, 
+    la categoría “<strong>Otros delitos que atentan contra la vida y la integridad corporal</strong>” subió de 5,993 a <strong>13,079</strong> —<strong>+7,086 (+118 %)</strong>.
+  </p>
 
-/* Control de Ancho Universal para Imágenes */
-img { 
-  max-width: 100%; 
-  height: auto; 
-}
+  <div class="destacado">
+    El aumento en la categoría residual<br>
+    <span class="grande">→ compensa casi perfectamente la “baja” que presume el gobierno ←</span>
+  </div>
 
-/* Móviles */
-@media (max-width: 768px) {
-  h1 { font-size: 2em; }
-  .grid { grid-template-columns: 1fr; }
-  table, canvas { font-size: 0.9em; }
+  <h3>Víctimas de delitos que atentan contra la vida (SESNSP)</h3>
+  <img src="../mortales.png" alt="Gráfica apilada homicidios vs otros delitos 2018-2025" class="grafica-principal">
 
-body {
-    padding: 0 15px !important;   /* ← Mantiene el padding más estrecho para móvil */
-    max-width: none; /* Desactiva el max-width en móvil */
-  }
-  h1, h2, h3, p, table, img, .destacado, .caja-nota, .tabla-principal {
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  img.grafica-principal {
-    width: 100% !important;
-    height: auto !important;
-  }
-}
+  <p class="nota-roja">
+    En la categoría "Otros delitos contra la vida e integridad" no todas las víctimas son mortales, pero la autoridad no especifica cantidades.
+  </p>
 
+  <table class="tabla-principal">
+    <caption>Delitos con Víctimas Mortales</caption>
+    <thead>
+      <tr>
+        <th>Indicador</th>
+        <th>Ene–Sep 2018</th>
+        <th>Víctimas/día</th>
+        <th>Ene–Sep 2025</th>
+        <th>Víctimas/día</th>
+        <th>Variación</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="otros-delitos">
+        <td><strong>Otros delitos contra la vida e integridad</strong></td>
+        <td><strong>5,993</strong></td>
+        <td>21.95</td>
+        <td><strong>13,079</strong></td>
+        <td>47.91</td>
+        <td class="aumento"><strong>+7,086</strong></td>
+      </tr>
+      <tr class="homicidios">
+        <td><strong>Homicidios dolosos</strong></td>
+        <td><strong>25,270</strong></td>
+        <td>92.56</td>
+        <td><strong>18,407</strong></td>
+        <td>67.42</td>
+        <td class="baja"><strong>–6,863</strong></td>
+      </tr>
+      <tr class="homicidios">
+        <td><strong>Feminicidio</strong></td>
+        <td><strong>669</strong></td>
+        <td>2.45</td>
+        <td><strong>513</strong></td>
+        <td>1.88</td>
+        <td class="baja"><strong>–156</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Homicidio culposo</strong></td>
+        <td>12,918</td>
+        <td>47.32</td>
+        <td>13,674</td>
+        <td>50.09</td>
+        <td class="aumento">+756</td>
+      </tr>
+      <tr>
+        <td><strong>Aborto</strong></td>
+        <td>463</td>
+        <td>1.70</td>
+        <td>747</td>
+        <td>2.74</td>
+        <td class="aumento">+284</td>
+      </tr>
+    </tbody>
+  </table>
 
-/* Footer y botones */
-footer { text-align: center; color: #777; margin-top: 80px; padding: 30px 0; border-top: 1px solid #eee; }
-a { color: #c0392b; }
-a:hover { color: #e74c3c; }
-.back-to-top { text-align: center; margin: 50px 0; }
+  <h3>Desapariciones (no localizadas + localizadas muertas)</h3>
+  <p>Además el gobierno no menciona otros delitos que son de alto impacto, pero siguen aumentando, como lo son las desapariciones.</p>
 
-/* Clases específicas para la página de Delitos */
-.subtitulo { font-size: 1.3em; color: #555; text-align: center; margin: 20px 0; }
-.fecha { text-align: center; color: #777; margin-bottom: 30px; }
-.resumen { font-size: 1.2em; text-align: justify; }
-.destacado { font-size: 1.4em; font-weight: bold; text-align: center; background: #fdf2f2; padding: 25px; border-left: 10px solid #c0392b; border-radius: 10px; margin: 40px 0; }
-.destacado .grande { font-size: 1.7em; display: block; margin-top: 10px; }
-.grafica-principal { 
-    display: block; 
-    margin: 40px auto; 
-    border-radius: 12px; 
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-    max-width: 100%; /* ¡AJUSTE CLAVE! */
-}
-.nota-roja { color: #c0392b; font-weight: bold; text-align: center; margin: 20px 0; }
-.otros-delitos { background: #fff3e0 !important; }
-.homicidios { background: #ffebee !important; }
-.aumento { color: #c0392b; font-weight: bold; }
-.baja { color: #27ae60; font-weight: bold; }
-.caja-nota { background: #fef9e7; padding: 20px; border-left: 8px solid #f39c12; border-radius: 8px; margin: 40px 0; font-size: 1.1em; }
-.conclusion-titulo { text-align: center; color: #2c3e50; font-size: 2.2em; margin: 80px 0 30px; }
-.conclusion { text-align: center; font-size: 2em; font-weight: bold; color: #c0392b; margin: 40px 0; }
-.fuente { text-align: center; color: #777; font-size: 0.9em; margin: 50px 0; }
+  <table class="tabla-secundaria">
+    <caption>Desapariciones</caption>
+    <thead>
+      <tr>
+        <th>Indicador</th>
+        <th>Ene–Sep 2018</th>
+        <th>Ene–Sep 2025</th>
+        <th>Variación</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Personas desaparecidas no localizadas + localizadas muertas<br><small>(≈48 % de todas las carpetas)</small></td>
+        <td>7,635</td>
+        <td>10,168</td>
+        <td class="aumento">+2,533 (+33 %)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="caja-nota">
+    <strong>Nota clave:</strong> El gobierno dice que “más del 90 % de desaparecidos se localizan”. Realidad: <strong>solo el 52 % de las carpetas terminan en personas localizadas vivas</strong>. El resto queda en el limbo o como cadáveres que muchas veces <u>no se clasifican como homicidio doloso</u>.
+  </div>
+
+  <h3 class="conclusion-titulo">Conclusión</h3>
+  <p class="conclusion">
+    No hay menos muertos.<br>
+    Solo hay más maquillaje estadístico.
+  </p>
+
+  <p class="fuente">
+    Fuente: SESNSP – Datos Abiertos de Incidencia Delictiva (Fuero Común)<br>
+    Cálculo diario: Total ÷ 273 días (1 ene – 30 sep)
+  </p>
+
+  <p class="back-to-top"><a href="../">← Volver al inicio</a></p>
+
+</body>
+</html>
