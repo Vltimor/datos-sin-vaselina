@@ -1,0 +1,49 @@
+{
+  "name": "Datos Sin Vaselina",
+  "short_name": "DSV",
+  "lang": "es-MX",
+  "start_url": "/datos-sin-vaselina/index.html",
+  "scope": "/datos-sin-vaselina/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#ff6600",
+  "description": "Análisis sin filtros de datos públicos en México",
+  "icons": [
+    {
+      "src": "/datos-sin-vaselina/favicons/android-chrome-36x36.png",
+      "sizes": "36x36",
+      "type": "image/png"
+    },
+    {
+      "src": "/datos-sin-vaselina/favicons/android-chrome-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/datos-sin-vaselina/favicons/android-chrome-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/datos-sin-vaselina/favicons/android-chrome-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/datos-sin-vaselina/favicons/android-chrome-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/datos-sin-vaselina/favicons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/datos-sin-vaselina/favicons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
