@@ -113,3 +113,8 @@ a:hover { color: #e74c3c; }
 .conclusion-titulo { text-align: center; color: #2c3e50; font-size: 2.2em; margin: 80px 0 30px; }
 .conclusion { text-align: center; font-size: 2em; font-weight: bold; color: #c0392b; margin: 40px 0; }
 .fuente { text-align: center; color: #777; font-size: 0.9em; margin: 50px 0; }
+
+.oficial { background-color: #f0f8ff; border-left: 5px solid #007bff; }
+.rojo { color: #c0392b; font-weight: bold; }
+.verde { color: #27ae60; font-weight: bold; }
+.fbeige { background: #fff3e0 !important; }
