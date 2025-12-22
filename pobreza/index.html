@@ -4,11 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pobreza México 2025 – CONEVAL y Ranking Mundial HDI | Datos Sin Vaselina</title>
-  <meta name="description" content="Pobreza multidimensional México 2025 sigue en 36.3% y el país cae al lugar 81 mundial en desarrollo humano (HDI). Datos CONEVAL y PNUD.">
-  <meta name="keywords" content="pobreza México 2025, CONEVAL 2025, HDI México, desarrollo humano 2025">
+  <meta name="description" content="Pobreza multidimensional México 2025 sigue en 29.6% y el país cae al lugar 81 mundial en desarrollo humano (HDI). Datos CONEVAL y PNUD.">
+  <meta name="keywords" content="pobreza México 2025, CONEVAL 2025, HDI México, desarrollo humano 2025, clase media México 2025, Sheinbaum pobreza, INEGI 2025">
   <link rel="stylesheet" href="../styles2.css">
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-539R7EQE3N"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-539R7EQE3N');</script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <!-- INICIA FAVICON -->
 
@@ -77,26 +79,104 @@
 <body>
 
   <h1>Pobreza en México 2025</h1>
-  <p class="subtitulo">Los datos que no aparecen en la mañanera</p>
-  <p class="fecha">Actualizado: 14 diciembre 2025</p>
+  <p class="subtitulo">Los datos que no aparecen en la Mañanera</p>
+  <p class="fecha">Actualizado: 21 diciembre 2025</p>
 
+<h2>La narrativa oficial</h2>
 <div class="destacado oficial">
-  <strong>Declaración de AMLO (30 noviembre 2025, Palenque, Chiapas):</strong><br><br>
-  "...en el tiempo que estuve en la presidencia salieron de la pobreza 13 millones 400 mil mexicanos. Lo voy a repetir: 13 millones 400 mil mexicanos. Nunca se había hecho eso, nunca en un sexenio. Es un gran orgullo: cuando llegué a la presidencia el 42% de los mexicanos estaban en la pobreza; 42% de toda la población; cuando dejé la presidencia ya había bajado la pobreza se había reducido al 29%; y hay otros datos, también se redujo la desigualdad porque México era país de unos cuantos..."
+  <strong>Claudia Sheinbaum (19 de diciembre de 2025, Mañanera del Pueblo, Ciudad de México):</strong><br><br>
+  "... y después en 2022 de acuerdo con el Banco Mundial es la primera vez, desde, digo, porque desde aquí se mide, no se tiene de atrás, es la primera vez que en México hay más personas que están reconocidas como en clase media y menos personas en pobreza. Y luego viene el brinco de 2024, fíjense bien, comparen esto con esto. Esta es la brecha. Y ahora no. Claro que queremos que haya todavía menos personas en pobreza, pero miren como cambió, hay más gente que tiene las principales necesidades resueltas ya no hay vulnerabilidad le llama el INEGI frente al 21.7% de acuerdo al Banco Mundial..."
 </div>
 
+<h2>¿Realmente hay más clase media que pobres?</h2>
+<p>
+<strong class="rojo"></strong> Parcialmente cierto. El problema es que la gente común tiene en mente únicamente 3 clases sociales: Clase baja (pobres), clase media y clase alta. Se sacaron de la chistera agregar una categoría entre la clase baja y la clase media, que le llaman Vulnerables. Sheinbaum no menciona a los Vulnerables y como lo pregona la misma Sheinbaum: "lo que no se nombra, no existe". Si se incluyen a los Vulnerables se voltea completamete la percepción porque la situación de los Vulnerables no es tan precaria como la de los pobres, pero están en una situación económicamente complicada. Además el Banco Mundial agrupa en la misma "Clase Media $17+ dólares" a quien gana ~$9,400 pesos mensuales con los millonarios del país como Carlos Slim. Al no existir la categoría "Clase Alta" el 39.6% suena a un triunfo de las mayorías cuando en realidad incluye a la élite. En otras palabras: Pobres + Vulnerables = 60.4%, Clase Media + Clase Alta = 39.6%.
+</p>
+
+<h2>Distribución por ingresos diarios (Banco Mundial 2024)</h2>
+
+<div class="grafica-container" style="max-width: 600px; margin: 40px auto;">
+  <canvas id="graficaClases2024"></canvas>
+</div>
+
+<table class="tabla-principal">
+<caption>El Banco Mundial maneja la siguiente clasificación: <sup>[5]</sup></caption>
+<thead>
+	<tr><th>Categoría</th><th>Personas (%) 2018</th><th>Personas (%) 2024</th><th>Variación</th></tr>
+</thead>
+<tbody>
+	<tr class="fbeige"><td>Pobreza $0.00 - $8.30 dólares</td> <td>43,701,400 (35.3%)</td> <td>23,063,100 (21.7%)</td><td>-13.6%</td></tr>
+	<tr><td>Vulnerables $8.30 dólares - $17 dólares</td><td>46,425,000 (37.5%)</td> <td>50,426,100 (38.7%)</td> <td>+1.2%</td></tr>
+	<tr class="fbeige"><td>Clase Media $17+ dólares</td> <td>33,673,600 (27.2%)</td> <td>51,598,800 (39.6%)</td><td>+12.4%</td></tr>
+	<tr><td><strong>Total</strong></td> <td><strong>123,800,000</strong> (100%)</td> <td><strong>130,300,000</strong> (100%)</td><td></td></tr>
+</tbody>
+</table>
+
+  <div class="caja-nota">
+    <strong>Nota clave: </strong>Prácticamente la totalidad del -13.6% que salieron de la pobreza pasaron directamente a categoría de Clase Media (+12.4%) sin transitar por la Vulnerabilidad, 
+<strong>estamos ante un fenómeno estadístico inusual.</strong><u></u>
+  </div>
+
+
+<h2>¿Por qué el Banco Mundial muestra un "brinco" tan grande en la clase media?</h2>
+<p>
+La reducción de la pobreza por ingresos según el Banco Mundial (de 35.5% en 2018 a 21.7% en 2024)<sup>[5]</sup> y el aumento de la "clase media" a 39.6%<sup>[5]</sup> se deben en gran parte a dos factores externos que inflaron los ingresos per cápita medidos en dólares:
+</p>
+
+<ul>
+  <li><strong>El récord histórico de remesas:</strong> En 2024 México recibió cerca de 64,745 millones de dólares en remesas familiares<sup>[6]</sup>, principalmente desde Estados Unidos. Estos envíos, que benefician sobre todo a hogares de bajos ingresos, elevaron el ingreso diario en dólares de millones de personas, permitiendo que muchas cruzaran el umbral de los 17 dólares diarios que define el Banco Mundial como "clase media".</li>
+  <li><strong>La apreciación del peso ("superpeso"):</strong> Entre 2022 y 2024 el peso mexicano se fortaleció significativamente frente al dólar, lo que hizo que los mismos ingresos en pesos equivalieran a más dólares per cápita. El promedio anual pasó de ~19.2 pesos por dólar en 2018 a ~18.3 en 2024 (apreciación que infló ingresos en USD). Este efecto cambiario contribuyó directamente al "salto" estadístico observado en la medición internacional.</li>
+</ul>
+
+<p>
+Estos elementos explican en buena medida el fenómeno "inusual" de que 13 millones de personas pasaran directamente a la categoría superior sin transitar por la vulnerabilidad intermedia. Sin embargo, <strong>esta mejora es frágil:</strong> depende de variables externas como el empleo en EE.UU., políticas migratorias y el tipo de cambio. Además, no se refleja en la medición multidimensional del INEGI, donde las carencias sociales aumentaron para los pobres y vulnerables, afectando a cerca de 80 millones de mexicanos.
+</p>
+
+<p class="rojo">
+En resumen: hay más dólares circulando en los hogares gracias a remesas y un peso fuerte, pero las necesidades básicas (salud, educación, vivienda, alimentación) siguen sin resolverse de forma profunda para la mayoría.
+</p>
+
+<h2>Comparación 2018 vs 2024 (Banco Mundial)</h2>
+
+<div class="grafica-container" style="max-width: 800px; margin: 40px auto;">
+  <canvas id="graficaComparacion"></canvas>
+</div>
+
+<h2>Pobreza multidimensional: la otra cara de la moneda (INEGI)</h2>
+
+<table class="tabla-principal">
+<caption>Indicadores de Pobreza Multidimensional INEGI 2018 vs 2024</caption>
+<thead>
+	<tr><th>Categoría</th><th>Millones de Personas (%) 2018</th><th>Millones de Personas (%) 2024</th><th>Variación</th></tr>
+</thead>
+<tbody>
+	<tr class="fbeige"><td>Pobreza</td> <td>51.9 (41.9%)</td> <td>38.5 (29.6%)</td><td>-13.4 (-12.3%)</td></tr>
+	<tr><td>Vulnerables</td><td>42.6 (34.4%)</td> <td>49.5 (38%)</td> <td>+6.9 (+3.6%)</td></tr>
+	<tr class="fbeige"><td>No pobres ni vulnerables</td> <td>29.3 (23.7%)</td> <td>42.3 (32.5%)</td><td>+13 (+8.8%)</td></tr>
+	<tr><td><strong>Total</strong></td> <td><strong>123.8</strong> (100%)</td> <td><strong>130.3</strong> (100.1%)</td><td>+6.5</td></tr>
+</tbody>
+</table>
+
+  <div class="caja-nota">
+    <strong>Nota clave: </strong>13 millones de personas pasaron directamente a categoría de No Pobres ni vulnerables sin transitar por la Vulnerabilidad, 
+<strong>estamos ante un fenómeno estadístico inusual.</strong><u></u>
+  </div>
+
   <p class="resumen">
-    Pobreza multidimensional (CONEVAL 2024): <strong>29.6 %</strong><br>
+    Pobreza multidimensional (INEGI 2024): <strong>29.6 %</strong><br>
     Ranking mundial de Desarrollo Humano (HDI 2023): México cae al <strong>lugar 81</strong> (el peor en 20 años).
   </p>
 
   <div class="destacado">
     6 años de “primero los pobres”<br>
-    <span class="grande">13.4 millones salieron de la pobreza, pero los 38.5 millones restantes aumentaron su pobreza.</span>
+    <span class="grande">13.4 millones salieron de la pobreza, pero 80 millones (38.5 millones de pobres + 41.9 millones de vulnerables) empeoraron su situación economica al aumentar el promedio de sus 
+Carencias Sociales.</span>
   </div>
 
+<h2>¿Mejoró la calidad de vida? Las carencias sociales</h2>
+
   <table class="tabla-principal">
-    <caption>Pobreza Multidimensional CONEVAL (% de la población)</caption>
+    <caption>Promedio Carencias Sociales de los Pobres INEGI</caption>
         <thead>
             <tr>
                 <th>Periodo (Presidente)</th>
@@ -122,10 +202,43 @@
                 <td>AMLO (2024)<sup>[3]</sup></td>
                 <td class="baja">29.6%</td>
                 <td class="baja">38.5</td>
-                <td class="aumento">2.5</td>
+                <td class="aumento"><strong>2.5</strong></td>
             </tr>
         </tbody>
     </table>
+
+  <table class="tabla-principal">
+    <caption>Promedio Carencias Sociales de Vulnerables INEGI (No incluye Vulnerables por Ingresos)</caption>
+        <thead>
+            <tr>
+                <th>Periodo (Presidente)</th>
+                <th>Porcentaje</th>
+                <th>Millones de Personas</th>
+                <th>Promedio de Carencias Sociales<sup>[1]</sup></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Calderón (2012)<sup>[2]</sup></td>
+                <td>28.6%</td>
+                <td>33.5</td>
+                <td>1.8</td>
+            </tr>
+            <tr>
+                <td>Peña Nieto (2018)<sup>[3]</sup></td>
+                <td>26.4%</td>
+                <td>32.7</td>
+                <td>1.8</td>
+            </tr>
+            <tr class="otros-delitos">
+                <td>AMLO (2024)<sup>[3]</sup></td>
+                <td>32.2%</td>
+                <td>41.9</td>
+                <td class="aumento"><strong>2.0</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
             <p><sup>[1]</sup> <strong>Las 6 Carencias Sociales medidas son:</strong></p>
             <ul>
                 <li>Rezago Educativo</li>
@@ -135,6 +248,8 @@
                 <li>Servicios Básicos en la Vivienda</li>
                 <li>Acceso a la Alimentación Nutritiva y de Calidad</li>
             </ul>
+
+<h2>Ranking mundial de Desarrollo Humano (HDI)</h2>
 
   <table class="tabla-principal">
     <caption>Ranking Mundial Desarrollo Humano (HDI – PNUD)<sup>[4]</sup></caption>
@@ -150,26 +265,130 @@
     </tbody>
   </table>
 
+<h2>Conclusión</h2>
 
   <p class="conclusion">
     Récord histórico de transferencias sociales pagadas con deuda pública,<br>
-    pero no evitaron que 38.5 millones de pobres aumentaran sus Carencias Sociales.
+    pero no evitaron que 80 millones de personas aumentaran sus Carencias Sociales.
   </p>
 
   <p class="fuente">
     Fuentes:<br>
         <sup>[2]</sup> CONEVAL, Informe de Pobreza en México 2012.<br>
-        <sup>[3]</sup> INEGI, Comunicado de Prensa 118/25: Medición de Pobreza Multidimensional 2024.<br>
+        <sup>[3]</sup><a href="https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2025/pm/pm2025_08.pdf">INEGI, Comunicado de Prensa 118/25: Medición de Pobreza Multidimensional 2024.</a><br>
         <sup>[4]</sup><a href="https://hdr.undp.org/content/human-development-report-2002">Human Developmente Report (HDR) 2002-Human Development Index (HDI) 2000</a>, 
                       <a href="https://hdr.undp.org/content/human-development-report-20078">HDR 2007/8-HDI 2005</a>, 
                       <a href="https://hdr.undp.org/content/human-development-report-2013">HDR 2013-HDI 2012</a>, 
                       <a href="https://digitallibrary.un.org/record/3846848?v=pdf">HDR 2019-HDI 2018</a>, 
-                      <a href="https://hdr.undp.org/content/human-development-report-2025">HDR 2025-HDI 2023</a>.
+                      <a href="https://hdr.undp.org/content/human-development-report-2025">HDR 2025-HDI 2023</a>.<br>
+	<sup>[5]</sup><a href="https://www.bancomundial.org/es/topic/poverty/lac-equity-lab1/income-inequality/income-distribution">LAC Equity Lab: Desigualdad - Distribución de Ingresos (Banco Mundial)</a><br>
+	<sup>[6]</sup><a href="https://www.banxico.org.mx/...">Banco de México, Estadísticas de Remesas Familiares 2024.</a>
   </p>
 
 
   <p class="back-to-top"><a href="../">Volver al inicio</a></p>
+<script>
+  const ctx = document.getElementById('graficaClases2024').getContext('2d');
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: [
+        'Pobres (0 - $8.30 USD/día)',
+        'Vulnerables ($8.30 - $17 USD/día)',
+        'Clase Media (incluye Alta, $17+ USD/día)'
+      ],
+      datasets: [{
+        data: [28666000, 49514000, 52120000],
+        backgroundColor: [
+          '#d32f2f',  // Rojo intenso
+          '#ffa000',  // Ámbar
+          '#388e3c'   // Verde
+        ],
+        borderColor: '#ffffff',
+        borderWidth: 3
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'right',
+          labels: {
+            padding: 20,
+            font: {
+              size: 14
+            }
+          }
+        },
+        title: {
+          display: true,
+          text: 'Distribución de la población mexicana por ingreso diario (Banco Mundial 2024)',
+          font: {
+            size: 18
+          },
+          padding: 20
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              const label = context.label || '';
+              const value = context.parsed;
+              const total = context.dataset.data.reduce((a, b) => a + b, 0);
+              const percentage = Math.round((value / total) * 1000) / 10;  // Un decimal
+              return `${label}: ${value.toLocaleString('es-MX')} personas (${percentage}%)`;
+            }
+          }
+        }
+      },
+      cutout: '60%'  // Hace el hueco más grande para que se vea mejor
+    }
+  });
+</script>
 
+<script>
+  const ctx2 = document.getElementById('graficaComparacion').getContext('2d');
+  new Chart(ctx2, {
+    type: 'bar',
+    data: {
+      labels: ['Pobres', 'Vulnerables', 'Clase Media (incl. Alta)'],
+      datasets: [
+        {
+          label: '2018',
+          data: [43330000, 47044000, 33426000],
+          backgroundColor: '#d32f2f'
+        },
+        {
+          label: '2024',
+          data: [28666000, 49514000, 52120000],
+          backgroundColor: '#388e3c'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: { display: true, text: 'Millones de personas' }
+        }
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: 'Distribución por ingreso diario - Banco Mundial (2018 vs 2024)',
+          font: { size: 18 }
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return `${context.dataset.label}: ${context.parsed.y.toLocaleString('es-MX')} personas`;
+            }
+          }
+        }
+      }
+    }
+  });
+</script>
 </body>
-
 </html>
