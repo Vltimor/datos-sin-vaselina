@@ -22,6 +22,21 @@
     </script>
 <!-- Termina redireccionamiento de anomalía -->
 
+<!-- Empieza redireccionamiento de huachicol -->
+<script>
+        // Comprobamos si la URL actual tiene un fragmento (hash)
+        if (window.location.hash) {
+            // Normalizamos el fragmento a minúsculas y comparamos
+            if (window.location.hash.toLowerCase() === '#huachicol') {
+                // Si coincide con #huachicol, redirigimos inmediatamente.
+                // Usamos replace() para que la página original no quede en el historial del navegador.
+                var newURL = 'https://vltimor.github.io/datos-sin-vaselina/energeticos/index.html';
+                window.location.replace(newURL);
+            }
+        }
+    </script>
+<!-- Termina redireccionamiento de huachicol -->
+
 <!-- Empieza favicon -->
 <link rel="icon" type="image/x-icon" href="favicons/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
