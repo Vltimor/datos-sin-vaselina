@@ -6,8 +6,30 @@
   <title>Datos Sin Vaselina 2025 – Homicidios, Deuda, Inflación y Superpeso | México</title>
   <meta name="description" content="Datos oficiales 2025 sin maquillaje: homicidios reclasificados, deuda récord, superpeso y protestas campesinas. Fuentes: INEGI, BANXICO, SESNSP.">
   <link rel="stylesheet" href="styles2.css">
+  
+<script>
+  (function() {
+    const hash = window.location.hash.toLowerCase();
+    if (!hash) return; // Si no hay ancla, no hacemos nada
 
-<!-- Empieza redireccionamiento de anomalía -->
+    // Mapa de rutas: "ancla": "destino"
+    const mapaRutas = {
+      "#anomalia":   "https://vltimor.github.io/datos-sin-vaselina/superpeso/",
+      "#huachicol":  "https://vltimor.github.io/datos-sin-vaselina/energeticos/",
+      "#delitos":    "https://vltimor.github.io/datos-sin-vaselina/delitos/",
+      "#refinacion": "https://vltimor.github.io/datos-sin-vaselina/energeticos/",
+      "#refinación": "https://vltimor.github.io/datos-sin-vaselina/energeticos/",
+      "#inflacion":  "https://vltimor.github.io/datos-sin-vaselina/inflacion/",
+      "#inflación":  "https://vltimor.github.io/datos-sin-vaselina/inflacion/"
+    };
+
+    if (mapaRutas[hash]) {
+      window.location.replace(mapaRutas[hash]);
+    }
+  })();
+</script>
+  
+<!-- Empieza redireccionamiento de anomalía 
 <script>
         // Comprobamos si la URL actual tiene un fragmento (hash)
         if (window.location.hash) {
@@ -20,9 +42,9 @@
             }
         }
     </script>
-<!-- Termina redireccionamiento de anomalía -->
+Termina redireccionamiento de anomalía -->
 
-<!-- Empieza redireccionamiento de huachicol -->
+<!-- Empieza redireccionamiento de huachicol 
 <script>
         // Comprobamos si la URL actual tiene un fragmento (hash)
         if (window.location.hash) {
@@ -35,9 +57,9 @@
             }
         }
     </script>
-<!-- Termina redireccionamiento de huachicol -->
+ Termina redireccionamiento de huachicol -->
 
-<!-- Empieza redireccionamiento de delitos -->
+<!-- Empieza redireccionamiento de delitos 
 <script>
         // Comprobamos si la URL actual tiene un fragmento (hash)
         if (window.location.hash) {
@@ -50,7 +72,7 @@
             }
         }
     </script>
-<!-- Termina redireccionamiento de delitos -->
+ Termina redireccionamiento de delitos -->
 
 <!-- Empieza favicon -->
 <link rel="icon" type="image/x-icon" href="favicons/favicon.ico">
@@ -145,4 +167,5 @@
 </body>
 
 </html>
+
 
