@@ -29,65 +29,78 @@
     <p class="subtitulo">Pemex, Dos Bocas y un huachicol que resurge con fuerza</p>
     <p class="fecha">Actualizado: 29 diciembre 2025</p>
 
-    <canvas id="myChart" aria-label="Gráfico de línea: Producción de hidrocarburos líquidos Pemex 2018-2025 (muestreado trimestral). Pico en 2023 ~1.88 Mbd, caída pronunciada a ~1.65 Mbd en 2025." role="img"></canvas>
-
-    <script>
-        const ctx = document.getElementById('myChart').getContext('2d');
-        const chartConfig = {
-            type: 'line',
-            data: {
-                labels: [
-                    'Dic 2018', 'Mar 2019', 'Jun 2019', 'Sep 2019', 'Dic 2019',
-                    'Mar 2020', 'Jun 2020', 'Sep 2020', 'Dic 2020',
-                    'Mar 2021', 'Jun 2021', 'Sep 2021', 'Dic 2021',
-                    'Mar 2022', 'Jun 2022', 'Sep 2022', 'Dic 2022',
-                    'Mar 2023', 'Jun 2023', 'Sep 2023', 'Dic 2023',
-                    'Mar 2024', 'Jun 2024', 'Sep 2024', 'Dic 2024',
-                    'Mar 2025', 'Jun 2025', 'Sep 2025'
+    <h2>Producción Hidrocarburos PEMEX</h2>
+<canvas id="myChart" aria-label="Gráfico de línea: Producción de hidrocarburos líquidos Pemex 2018-2025 (muestreado trimestral). Pico en 2023 ~1.88 Mbd, caída pronunciada a ~1.63 Mbd en 2025." role="img"></canvas>
+<script>
+    const ctx = document.getElementById('myChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [
+                'Dic 2018', 'Mar 2019', 'Jun 2019', 'Sep 2019', 'Dic 2019',
+                'Mar 2020', 'Jun 2020', 'Sep 2020', 'Dic 2020',
+                'Mar 2021', 'Jun 2021', 'Sep 2021', 'Dic 2021',
+                'Mar 2022', 'Jun 2022', 'Sep 2022', 'Dic 2022',
+                'Mar 2023', 'Jun 2023', 'Sep 2023', 'Dic 2023',
+                'Mar 2024', 'Jun 2024', 'Sep 2024', 'Dic 2024',
+                'Mar 2025', 'Jun 2025', 'Sep 2025'
+            ],
+            datasets: [{
+                label: 'Producción diaria promedio (miles de barriles)',
+                data: [
+                    1729, 1710, 1692, 1730, 1732,
+                    1771, 1655, 1698, 1711,
+                    1759, 1768, 1782, 1773,
+                    1777, 1787, 1777, 1817,
+                    1878, 1899, 1879, 1847,
+                    1811, 1782, 1749, 1619,
+                    1607, 1629, 1652
                 ],
-                datasets: [{
-                    label: 'Producción diaria promedio (miles de barriles)',
-                    data: [
-                        1729, 1710, 1692, 1730, 1732,
-                        1771, 1655, 1698, 1711,
-                        1759, 1768, 1782, 1773,
-                        1777, 1787, 1777, 1817,
-                        1878, 1899, 1879, 1847,
-                        1811, 1782, 1749, 1619,
-                        1607, 1629, 1652
-                    ],
-                    borderColor: '#e74c3c',
-                    backgroundColor: 'rgba(231, 76, 60, 0.2)',
-                    tension: 0.2,
-                    fill: true,
-                    pointRadius: 5,
-                    pointBackgroundColor: '#c0392b'
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { position: 'top' },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                return context.parsed.y + ' mil barriles/día';
-                            }
+                borderColor: '#e74c3c',
+                backgroundColor: 'rgba(231, 76, 60, 0.2)',
+                tension: 0.2,
+                fill: true,
+                pointRadius: 5,
+                pointBackgroundColor: '#c0392b'
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'top' },
+                tooltip: {
+                    mode: 'index',
+                    intersect: false,
+                    callbacks: {
+                        label: function(context) {
+                            return context.parsed.y + ' mil barriles/día';
                         }
                     }
+                }
+            },
+            hover: {
+                mode: 'index',
+                intersect: false
+            },
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    suggestedMin: 1500,
+                    suggestedMax: 2000,
+                    ticks: { callback: function(value) { return value + 'k'; } }
                 },
-                scales: {
-                    y: {
-                        beginAtZero: false,
-                        suggestedMin: 1500,
-                        suggestedMax: 2000,
-                        ticks: { callback: value => value + 'k' }
+                x: {
+                    ticks: {
+                        maxRotation: 90,
+                        minRotation: 45,
+                        autoSkip: true,
+                        maxTicksLimit: 20
                     }
                 }
             }
-        };
-        new Chart(ctx, chartConfig);
-    </script>
+        }
+    });
+</script>
 
     <p style="text-align: center; margin-top: 20px; font-style: italic;">
         Datos muestreados trimestralmente. Tendencia: pico 2023, caída acelerada 2024-2025 hasta niveles más bajos desde 1979.
@@ -100,9 +113,15 @@
 
     <div class="destacado">
         Invertimos más de 40 mil millones de dólares<br>
-        <span class="grande">y producimos 300-400 mil barriles menos que en 2018</span>
+        <span class="grande">y producimos 300 mil - 400 mil barriles menos que en 2018</span>
     </div>
 
+    <h2>Robo de Combustible (Huachicol)</h2>
+<div class="destacado oficial">
+<strong>Luisa María Alcalde (26 de septiembre de 2025, Oaxaca, en un evento público como dirigente nacional de MORENA):</strong> "... o ésto que ahora le han llamado Huachicol Fiscal, pero que en realidad es 
+contrabando de combustible que viene del extranjero ¿no? o sea, lo pretenden hasta le ponen el nombre para dar la idea de que se trataba de lo que antes existía que son las fugas en los 
+ductos ¡no! eso se acabó, prácticamente se acabó con el presidente AMLO, como él lo declaró en su momento, porque había toda una cadena de corrupción en donde se ordeñaba los ductos de PEMEX ..."
+</div>
 
     <!-- Gráfico huachicol (mantenido) -->
     <div style="max-width: 900px; margin: 40px auto; padding: 20px; background:#fff; border-radius:12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
