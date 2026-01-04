@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Déficits Fiscales México 2025 por Sexenio – El gasto que no para | Datos Sin Vaselina</title>
-  <meta name="description" content="Déficit fiscal México 2025: el más alto desde 1988. Comparativa por sexenio y costo en intereses. Datos SHCP.">
-  <meta name="keywords" content="déficit fiscal 2025, déficit México por sexenio, SHCP, gasto público 2025">
+  <title>Deuda Pública México 2025 por Sexenio – Ya es el 4° país más endeudado de América Latina</title>
+  <meta name="description" content="Deuda pública México 2025: pasó del 23% del PIB en 2006 al 49.9% en sep 2025. Ranking América Latina y comparación por sexenio. Fuentes SHCP y FMI.">
+  <meta name="keywords" content="deuda pública México 2025, deuda por sexenio, SHCP, FMI, América Latina">
   <link rel="stylesheet" href="../styles2.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-539R7EQE3N"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-539R7EQE3N');</script>
 
@@ -76,76 +77,186 @@
 </head>
 <body>
 
-  <h1>Déficits Fiscales México 2025 por Sexenio</h1>
-  <p class="subtitulo">El gasto público que no frena ni con récord de ingresos</p>
-  <p class="fecha">Actualizado: diciembre 2025</p>
+  <h1>Deuda Pública México 2025 por Sexenio</h1>
+  <p class="subtitulo">La gráfica que nadie quiere que veas</p>
+  <p class="fecha">Actualizado: 03 enero 2026</p>
+
+        <h2>Porcentaje que se destina al pago del Servicio de la Deuda (SHRFSP)</h2>
+<table class="tabla-principal">
+<thead>
+<tr>
+<th>Presidente</th><th>Porcentaje del Gasto Neto Pagado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fox (nov 2006)</td><td>9.47%</td>
+</tr>
+<tr>
+<td>Calderón (nov 2012)</td><td>6.09%</td>
+</tr>
+<tr>
+<td>Peña (nov 2018)</td><td>9.13%</td>
+</tr>
+<tr>
+<td>AMLO (sep 2024)</td><td>12.69%</td>
+</tr>
+<tr class="fbeige">
+<td>Sheinbaum (nov 2025)</td><td class="rojo">13.05%</td>
+</tr>
+</tbody>
+<tfoot>
+Fuente: <a href="https://www.finanzaspublicas.hacienda.gob.mx/es/Finanzas_Publicas/Informes_al_Congreso_de_la_Union">Información de Finanzas Públicas y Deuda Pública -SHCP</a>
+</tfoot>
+</table>
+
 
   <p class="resumen">
-    En 2024 el déficit fiscal alcanzó <strong>5.9 % del PIB</strong>, el más alto desde la crisis de 1988.<br>
-    Para 2025 se proyecta <strong>alrededor del 4.5 %</strong> —aún por encima del promedio histórico.
+    En 2006 la deuda pública representaba el <strong>23% del PIB</strong>.<br>
+    En 2025 alcanza el <strong>51.7% del PIB</strong><strong></strong> en 19 años.<br>
   </p>
 
   <div class="destacado">
-    Nunca en la historia reciente<br>
-    <span class="grande">habíamos gastado tanto más de lo que ingresamos</span>
+    En 19 años duplicamos con creces la deuda<br>
+    <span class="grande">y seguimos celebrando el “superpeso”</span>
   </div>
 
+<h2>Porcentaje de la Deuda Pública (SHRFSP) adquirida por Sexenio</h2>
+    <p>Valores en billones de pesos. Total incremento 2000–2025: 18.26 billones</p>
+    <canvas id="deudaChart"></canvas>
+
+    <script>
+        const ctx = document.getElementById('deudaChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: [
+                    'Fox y anteriores (hasta 2006)',
+                    'Calderón (2006-2012)',
+                    'Peña Nieto (2012-2018)',
+                    'AMLO (2018-2024)',
+                    'Sheinbaum (2024-2025)'
+                ],
+                datasets: [{
+                    label: 'Incremento (billones de pesos)',
+                    data: [1.87, 3.30, 5.32, 6.24, 1.53],
+                    backgroundColor: [
+                        '#3498db',  // azul - Fox
+                        '#e67e22',  // naranja - Calderón
+                        '#27ae60',  // verde - Peña
+                        '#c0392b',  // rojo - AMLO
+                        '#9b59b6'   // púrpura - Sheinbaum
+                    ],
+                    borderColor: '#ffffff',
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            font: { size: 14 },
+                            padding: 20
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Porcentaje de la Deuda Nominal adquirida por Presidente',
+                        font: { size: 18 },
+                        padding: 20
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const label = context.label || '';
+                                const value = context.parsed;
+                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                const percentage = ((value / total) * 100).toFixed(2) + '%';
+                                return `${label}: ${value.toLocaleString()} billones (${percentage})`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
   <table class="tabla-principal">
-    <caption>Déficit Fiscal como % del PIB por Sexenio (SHCP)</caption>
-    <thead>
-	<tbody>
-                    <tr>
-                        <th>Presidente</th>
-                        <th>Años Base del Cálculo<sup>[2]</sup></th>
-                        <th>Déficit Anual Promedio</th>
-                    </tr>
-                    <tr>
-                        <td>Fox</td>
-                        <td>2001 <sup>[1]</sup>, 2002, 2003, 2004, 2005, 2006</td>
-                        <td>2.21%</td>
-                    </tr>
-                    <tr>
-                        <td>Calderón</td>
-                        <td>2007, 2008, 2009, 2010, 2011, 2012</td>
-                        <td>2.67%</td>
-                    </tr>
-                    <tr>
-                        <td>Peña</td>
-                        <td>2013, 2014, 2015, 2016, 2017, 2018</td>
-                        <td>2.90%</td>
-                    </tr>
-                    <tr class="otros-delitos">
-                        <td>AMLO</td>
-                        <td>2019, 2020, 2021, 2022, 2023, 2024</td>
-                        <td><strong>4.07%</strong></td>
-                    </tr>
-                    </table>
+        <caption>Saldo Histórico de los Requerimientos Financieros del Sector Público (SHRFSP).</caption>
+        <thead>
+            <tr>
+                <th>Fecha de Corte</th>
+                <th>Presidente</th>
+                <th>Deuda (SHRFS) como % del PIB</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>30 Nov 2006</td>
+                <td>Fox</td>
+                <td>16.89%** <sup>[1]</sup></td>
+            </tr>
+            <tr>
+                <td>30 Nov 2012</td>
+                <td>Calderón</td>
+                <td>31.30%** <sup>[2]</sup></td>
+            </tr>
+            <tr>
+                <td>30 nov 2018</td>
+                <td>Peña</td>
+                <td>43.35% <sup>[3]</sup></td>
+            </tr>    
+            <tr>
+                <td>30 sep 2024</td>
+                <td>AMLO</td>
+                <td>49.30% <sup>[4]</sup></td>
+            </tr>                 
+            <tr class="fbeige">
+                <td>30 nov 2025</td>
+                <td>Sheinbaum<br>(En <strong>14 meses completos</strong> de gobierno)</td>
+                <td>51.70% <sup>[5]</sup></td>
+            </tr>     
+        </tbody>
+    </table>
+    
+    <p style="font-size: 0.9em; margin-top: 5px; font-style: italic;">
+	** Las cifras para los sexenios de Fox y Anteriores, y Calderón corresponden al Saldo de la Deuda del Sector Público Federal. El Saldo Histórico de los Requerimientos Financieros del Sector Público (SHRFSP) fue consolidado como el indicador más amplio y representativo de 
+	la deuda pública en años posteriores, a partir del sexenio de Enrique Peña Nieto.<br>
+	*** Porcentaje estimado. Las cifras de deuda como % del PIB para fechas intermedias (que no son de cierre anual) se basan en estimaciones del PIB publicadas por la SHCP, ya que el dato consolidado y definitivo del PIB solo se conoce tiempo después del cierre de cada año.<br>
+	Nota: "Billón" se refiere a un millón de millones.<br>
+    </p>
 
-    <p><small><strong>Crisis internacionales:</strong> Fox (Punto Com), Calderón (Gran Recesión), AMLO (Covid).</small></p>
+    <p><small><strong>Crisis internacionales:</strong> Fox (Punto Com), Calderón (Gran Recesión), AMLO (Covid), Sheinbaum (sin crisis mayor hasta sep 2025).</small></p>
 
-                    <p>
-                    <sup>[1]</sup><a href="https://www.banxico.org.mx/publicaciones-y-prensa/informes-anuales/%7B845FCC5A-DA37-A61D-1D20-B3CED62F5DC5%7D.pdf">Informe Anual 2001 Banco de Mexico</a><br>
-                    <sup>[2]</sup><a href="http://presto.hacienda.gob.mx/EstoporLayout/comunicados.jsp">Comunicados de Prensa SHCP</a><br>
-                    </p>
-    </tbody>
-  </table>
+    <br>
 
-  
+        <strong>Fuentes:</strong><br>
+        <sup>[1] </sup>Información de Finanzas Públicas y Deuda Pública ENERO-NOVIEMBRE DE 2006.<br>
+        <sup>[2] </sup>Información de Finanzas Públicas y Deuda Pública ENERO-NOVIEMBRE DE 2012.<br>
+        <sup>[3] </sup>Comunicado No. 017 Las finanzas públicas y la deuda pública a noviembre de 2018.<br>
+        <sup>[4] </sup>Información de Finanzas Públicas y Deuda Pública, Enero-Septiembre de 2024.<br>
+        <sup>[5] </sup>Información de Finanzas Públicas y Deuda Pública <strong>a noviembre de 2025</strong>, SHCP.
+    </p>
+<!--
   <p class="caja-nota">
-    <strong>Costo 2025:</strong> solo en intereses de la deuda pública pagaremos más de <strong>1.2 billones de pesos</strong> —más que todo el presupuesto de salud + educación.
+    <strong>Ranking América Latina 2025 (FMI):</strong><br>
+    1. Argentina · 2. Brasil · 3. Ecuador · <strong>4. México</strong> · 5. Colombia
   </p>
-
+-->
   <p class="conclusion">
-    Récord histórico de ingresos petroleros + impuestos + remesas<br>
-    y aún así… el déficit más alto en 37 años.
+    El superpeso y las remesas récord<br>
+    pagan los intereses de una deuda que no para de crecer.
   </p>
 
   <p class="fuente">
-    Fuentes: SHCP (Finanzas Públicas), Hacienda, Banco de México<br>
-    Cifras preliminares 2025
+    Fuentes: SHCP (Deuda Pública Histórica), FMI, Banco Mundial<br>
+    Última actualización: noviembre 2025
   </p>
 
   <p class="back-to-top"><a href="../">Volver al inicio</a></p>
 
 </body>
+
 </html>
