@@ -116,30 +116,33 @@ Fuente: <a href="https://www.finanzaspublicas.hacienda.gob.mx/es/Finanzas_Public
     En 2025 alcanza el <strong>51.7% del PIB</strong><strong></strong> en 19 años.<br>
   </p>
 
-  <div class="destacado">
-    En 19 años duplicamos con creces la deuda<br>
-    <span class="grande">y seguimos celebrando el “superpeso”</span>
-  </div>
 
 <h2>Porcentaje de la Deuda Pública (SHRFSP) adquirida por Sexenio</h2>
-    <p>Valores en billones de pesos. Total incremento 2000–2025: 18.26 billones</p>
-    <canvas id="deudaChart"></canvas>
 
+<div class="destacado oficial">
+    Andrés Manuel López Obrador (30 de septiembre de 2024): "Esto tiene que ver con el incremento de los ingresos para fortalecer la hacienda pública, eso nos ha ayudado mucho porque nos 
+permitió que siempre aumentaran los ingresos (la recaudación) y que no tuviésemos necesidad de aumentar impuestos ni de aumentar los precios de los combustibles, <br>
+    <span class="grande">ni de endeudar al país..."</span>
+  </div>
+
+
+    <p>Valores en billones de pesos: $18.26 actualizados a precios de noviembre de 2025</p>
+    <canvas id="deudaChart"></canvas>
     <script>
         const ctx = document.getElementById('deudaChart').getContext('2d');
         new Chart(ctx, {
             type: 'pie',
             data: {
                 labels: [
-                    'Fox y anteriores (hasta 2006)',
-                    'Calderón (2006-2012)',
-                    'Peña Nieto (2012-2018)',
-                    'AMLO (2018-2024)',
-                    'Sheinbaum (2024-2025)'
+                    'Fox y anteriores (Deuda actualizada con INPC nov 2006)',
+                    'Calderón (Deuda actualizada con INPC nov 2009)',
+                    'Peña Nieto (Deuda actualizada con INPC nov 2015)',
+                    'AMLO (Deuda actualizada con INPC oct 2021 )',
+                    'Sheinbaum (Deuda actualizada con INPC abr 2025)'
                 ],
                 datasets: [{
                     label: 'Incremento (billones de pesos)',
-                    data: [1.87, 3.30, 5.32, 6.24, 1.53],
+                    data: [4.30, 6.56, 8.54, 7.72, 1.56],
                     backgroundColor: [
                         '#3498db',  // azul - Fox
                         '#e67e22',  // naranja - Calderón
@@ -163,7 +166,7 @@ Fuente: <a href="https://www.finanzaspublicas.hacienda.gob.mx/es/Finanzas_Public
                     },
                     title: {
                         display: true,
-                        text: 'Porcentaje de la Deuda Nominal adquirida por Presidente',
+                        text: 'Porcentaje de la Deuda (actualizada a nov 2025) adquirida por Presidente',
                         font: { size: 18 },
                         padding: 20
                     },
@@ -239,12 +242,7 @@ Fuente: <a href="https://www.finanzaspublicas.hacienda.gob.mx/es/Finanzas_Public
         <sup>[4] </sup>Información de Finanzas Públicas y Deuda Pública, Enero-Septiembre de 2024.<br>
         <sup>[5] </sup>Información de Finanzas Públicas y Deuda Pública <strong>a noviembre de 2025</strong>, SHCP.
     </p>
-<!--
-  <p class="caja-nota">
-    <strong>Ranking América Latina 2025 (FMI):</strong><br>
-    1. Argentina · 2. Brasil · 3. Ecuador · <strong>4. México</strong> · 5. Colombia
-  </p>
--->
+
   <p class="conclusion">
     El superpeso y las remesas récord<br>
     pagan los intereses de una deuda que no para de crecer.
