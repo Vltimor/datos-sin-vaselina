@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vltimor.github.io/datos-sin-vaselina/sitemap.xml
