@@ -3,15 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PIB México 2025 por Sexenio – El crecimiento que nunca llegó | Datos Sin Vaselina</title>
-  <meta name="description" content="Crecimiento del PIB por sexenio: AMLO + Sheinbaum apenas supera el 1% anual, el peor registro desde los 80. Datos INEGI y FMI.">
-  <meta name="keywords" content="PIB México 2025, crecimiento económico por sexenio, INEGI, FMI, estancamiento 2025">
+<meta name="description" content="Crecimiento acumulado y tasa anual promedio (CAGR) del PIB real por sexenio presidencial en México según INEGI. Incluye estimación 2025 de 0.7% y comparativa Fox, Calderón, Peña, AMLO y Sheinbaum.">
+<meta name="keywords" content="crecimiento pib por sexenio, pib méxico 2025, inegi pib, cagr pib méxico, sheinbaum pib 2025, amlo crecimiento económico, datos inegi 2025">
+<meta name="robots" content="index, follow">
+
+<title>Crecimiento del PIB por Sexenio en México 2000-2025 | Datos INEGI y FMI</title>
+
+<link rel="canonical" href="https://vltimor.github.io/datos-sin-vaselina/pib/">
   <link rel="stylesheet" href="../styles2.css">
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-539R7EQE3N"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-539R7EQE3N');</script>
 
 <!-- INICIA FAVICON -->
-
 <link rel="icon" type="image/x-icon" href="../favicons/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
@@ -71,82 +75,166 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="../favicons/mstile-144x144.png">
 <meta name="msapplication-config" content="../favicons/browserconfig.xml">
-
 <!-- TERMINA FAVICON -->
+
+<!-- Open Graph (para compartir en Facebook, LinkedIn, WhatsApp) -->
+<meta property="og:title" content="Crecimiento del PIB por Sexenio en México 2000-2025">
+<meta property="og:description" content="Comparativa histórica del PIB real por sexenio: Fox, Calderón, Peña Nieto, AMLO y Sheinbaum. Datos oficiales INEGI + estimación 2025.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://vltimor.github.io/datos-sin-vaselina/pib">
+<meta property="og:image" content="https://vltimor.github.io/datos-sin-vaselina/og-pib.png"> <!-- agrega una captura de la gráfica -->
+<meta property="og:site_name" content="Datos Sin Vaselina">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Crecimiento del PIB por Sexenio en México 2000-2025">
+<meta name="twitter:description" content="Datos INEGI: cuál sexenio tuvo el mayor y menor crecimiento económico.">
+<meta name="twitter:image" content="https://vltimor.github.io/datos-sin-vaselina/og-pib.png">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js">
+    </script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background: #f8f9fa; }
+        .chart-container { width: 90%; max-width: 900px; margin: 30px auto; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        h1 { color: #1a3c6e; }
+        .nota { font-size: 0.95em; color: #555; margin-top: 15px; }
+    </style>
 </head>
 <body>
 
-  <h1>PIB México 2025 por Sexenio</h1>
-  <p class="subtitulo">El crecimiento económico que nunca llegó</p>
-  <p class="fecha">Actualizado: octubre 2025</p>
+  <h1>Crecimiento del PIB acumulado por Sexenio</h1>
+  <p class="subtitulo">Comparación histórica del crecimiento del PIB por sexenios presidenciales</p>
+  <p class="fecha">Actualizado: 30 enero 2026</p>
 
-  <p class="resumen">
-    Crecimiento del PIB por sexenio:
-  </p>
 
   <div class="destacado">
-    En todo el sexenio completo de AMLO crecimos<br>
-    <span class="grande">lo que AMLO prometió que creceríamos en 1 año</span>
+Estimación en el Presupuesto de Egresos para 2025 = 3%. <br>
+    <span class="grande">Estimación preliminar del INEGI = 0.7%  <sup>[2]</sup></span>
   </div>
 
+    <h2>Tasa Compuesta Anual Promedio de Crecimiento del PIB (Real) por sexenio  <sup>[1]</sup></h2>
+
+    <div class="chart-container">
+        <canvas id="cagrChart"></canvas>
+    </div>
+
+    <p class="nota">
+         * Sheinbaum: periodo parcial (15 meses: oct 2024 – dic 2025)  <sup>[2]</sup>
+    </p>
+
+    <script>
+        const ctx = document.getElementById('cagrChart').getContext('2d');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    ['Fox', '(2000-2006)'],
+                    ['Calderón', '(2006-2012)'],
+                    ['Peña', '(2012-2018)'],
+                    ['AMLO', '(2018-2024)'],
+                    ['Sheinbaum', '(oct 2024 - dic 2025)*'],
+                ],
+                datasets: [{
+                    label: 'CAGR (%)',
+                    data: [1.78, 1.35, 1.96, 0.80, 0.86],
+                    backgroundColor: [
+                        '#2e7d32',  // Fox
+                        '#2e7d32',  // Calderón
+                        '#2e7d32',  // Peña
+                        '#2e7d32',  // AMLO
+                        '#2e7d32'   // Sheinbaum
+                    ],
+                    borderColor: '#fff',
+                    borderWidth: 2,
+                    borderRadius: 6,
+                    hoverBackgroundColor: '#ff9800'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'PIB CAGR',
+                        font: { size: 18 }
+                    },
+/*
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.parsed.y + '% anual promedio';
+                            }
+                        }
+                    }
+*/
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Tasa anual promedio (%)' },
+                        ticks: { stepSize: 0.5 }
+                    },
+                    x: {
+                        title: { display: true, text: 'Presidente y período' }
+                    }
+                }		
+            }
+        });
+    </script>
+
   <table class="tabla-principal">
-    <caption>Crecimiento del PIB por Sexenio (INEGI)</caption>
+    <caption>Crecimiento del PIB Real (ajustado por inflación) por Sexenio (INEGI)</caption>
     <thead>
                     <tr>
-                        <th>Perido</th>
-                        <th>Ultimo mes año inicio - Ultimo mes año terminación<sup>[1]</sup></th>
-                        <th>CRECIMIENTO PIB<sup>[2]</sup></th>
+                        <th scope="col">Sexenio</th>
+                        <th scope="col">Crecimiento Acumulado <sup>[1]</sup></th>
+			<th scope="col">Tasa Compuesta Anual Promedio</th>
                     </tr>
 </thead>
 <tbody>
                     <tr>
-                        <td>Fox</td>
-                        <td>Dic 2000 - Dic 2006</td>
-                        <td>11.38%</td>
+                        <th scope="row">Fox</th>
+                        <td>11.19%</td>
+                        <td>1.78%</td>
                     </tr>
                     <tr>
-                        <td>Calderón</td>
-                        <td>Dic 2006 - Dic 2012)</td>
-                        <td>8.57%</td>
+                        <th scope="row">Calderón</th>
+                        <td>8.39%</td>
+                        <td>1.35%</td>
                     </tr>
                     <tr>
-                        <td>Peña</td>
-                        <td>Dic 2012 - Dic 2018</td>
-                        <td>12.25%</td>
+                        <th scope="row">Peña</th>
+                        <td>12.33%</td>
+                        <td>1.96%</td>
                     </tr>
-                    <tr class="otros-delitos">
-                        <td>AMLO</td>
-                        <td>Dic 2018 - Dic 2024</td>
-                        <td><strong>5.22%</strong></td>
+                    <tr>
+                        <th scope="row">AMLO</th>
+                        <td class="rojo"><strong>4.73%</strong></td>
+                        <td class="rojo">0.80%</td>
+                    </tr>
+                    <tr class="fbeige">
+                        <th scope="row">Sheinbaum<br>oct 2024 - dic 2025</th>
+                        <td><strong>1.08%</strong> <sup>[2]</sup></td>
+                        <td><strong>0.86%</strong></td>
                     </tr>
 </tbody>
 </table>
 
-    <p><small><strong>Crisis internacionales:</strong> Fox (Punto Com), Calderón (Gran Recesión), AMLO (Covid).</small></p>
-
                     <p>
-                    <sup>[1]</sup>El PIB se reporta por años completos.<br>
-                    <sup>[2]</sup>Cálculo realizado con base en cifras del "Sistema de Cuentas Nacionales de México. Producto Interno Bruto Trimestral. Año Base 2018" emitido por el INEGI. Metodología: (PIB Anual del último año del sexenio) entre (PIB Anual del último año del sexenio anterior) = Resultado - 1<br>
+                    <sup>[1]</sup><a href="https://www.inegi.org.mx/app/tabulados/default.aspx?pr=21&vr=1&in=2&tp=20&wr=1&cno=1&idrt=3257&opc=p " target="_blank">Serie Retropolada Reducida INEGI</a><br>
+                    <sup>[2]</sup><a href="https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2026/pibo/pib_eo2026_01.pdf" target="_blank">Con base en la Estimación Oportuna Desestacionalizada para 2025 INEGI (publicada el 30 enero 2026)</a><br>
                     </p>
-    </tbody>
-  </table>
+
 
   <p class="caja-nota">
     <strong>Proyección 2025 (FMI, Banxico, OCDE):</strong> entre <strong>0.3 % y 0.9 %</strong>.<br>
-    México crece menos que casi toda América Latina por tercer año consecutivo.
   </p>
 
   <p class="conclusion">
-    Récord de remesas, superpeso, ingresos petroleros históricos…<br>
-    y el peor crecimiento económico en 40 años.
-  </p>
-
-    <caption>Ranking Mundial PIB México - 2025</caption>
-  <img src="../pib-dolar.png" alt="Ranking Mundial PIB México - 2025" class="grafica-principal">
-
-  <p class="fuente">
-    Fuentes: INEGI, Banco de México, FMI, OCDE<br>
-    Cifras reales y proyecciones 2025
+El sexenio de Andrés Manuel López Obrador registra el menor crecimiento acumulado del PIB real (4.73%) de los últimos 25 años, con una tasa anual promedio de solo 0.80%. El arranque del gobierno de Claudia Sheinbaum muestra un crecimiento acumulado de 1.08% en 15 meses (CAGR 0.86%), por debajo de las expectativas iniciales.
   </p>
 
   <p class="back-to-top"><a href="../">Volver al inicio</a></p>
