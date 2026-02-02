@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Intelligence Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 1.5rem;
+        }
+        body {
+            background-color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-7xl mx-auto">
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-800">Panel de Control de Ventas</h1>
+                <p class="text-gray-500">Análisis de rendimiento comercial y financiero</p>
+            </div>
+            <div class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md text-center">
+                <span class="text-sm block uppercase tracking-wide">Actualizado</span>
+                <span class="font-bold">Feb 2026</span>
+            </div>
+        </div>
+
+        <!-- KPI Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="card border-l-4 border-blue-500">
+                <p class="text-sm text-gray-500 font-semibold uppercase">Ventas Totales</p>
+                <h3 class="text-2xl font-bold text-gray-800" id="totalSales">$118.7M</h3>
+                <p class="text-green-500 text-xs mt-2">▲ 12% vs periodo anterior</p>
+            </div>
+            <div class="card border-l-4 border-green-500">
+                <p class="text-sm text-gray-500 font-semibold uppercase">Ganancia Neta</p>
+                <h3 class="text-2xl font-bold text-gray-800" id="totalProfit">$16.9M</h3>
+                <p class="text-green-500 text-xs mt-2">▲ 8.4% margen promedio</p>
+            </div>
+            <div class="card border-l-4 border-purple-500">
+                <p class="text-sm text-gray-500 font-semibold uppercase">Unidades Vendidas</p>
+                <h3 class="text-2xl font-bold text-gray-800" id="totalUnits">1.13M</h3>
+                <p class="text-gray-400 text-xs mt-2">Distribución global</p>
+            </div>
+            <div class="card border-l-4 border-orange-500">
+                <p class="text-sm text-gray-500 font-semibold uppercase">Descuentos Aplicados</p>
+                <h3 class="text-2xl font-bold text-gray-800" id="totalDiscounts">$9.2M</h3>
+                <p class="text-red-400 text-xs mt-2">7.7% del ingreso bruto</p>
+            </div>
+        </div>
+
+        <!-- Charts Row 1 -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <div class="card">
+                <h4 class="text-lg font-bold text-gray-700 mb-4">Tendencia de Ventas Mensuales</h4>
+                <div class="h-64">
+                    <canvas id="salesTrendChart"></canvas>
+                </div>
+            </div>
+            <div class="card">
+                <h4 class="text-lg font-bold text-gray-700 mb-4">Ventas por País</h4>
+                <div class="h-64">
+                    <canvas id="countryChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Row 2 -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="card lg:col-span-1">
+                <h4 class="text-lg font-bold text-gray-700 mb-4">Ventas por Segmento</h4>
+                <div class="h-64">
+                    <canvas id="segmentChart"></canvas>
+                </div>
+            </div>
+            <div class="card lg:col-span-2">
+                <h4 class="text-lg font-bold text-gray-700 mb-4">Rendimiento por Producto</h4>
+                <div class="h-64">
+                    <canvas id="productChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuración de colores corporativos
+        const colors = {
+            blue: '#3b82f6',
+            green: '#10b981',
+            purple: '#8b5cf6',
+            orange: '#f59e0b',
+            red: '#ef4444',
+            gray: '#6b7280'
+        };
+
+        // 1. Gráfico de Tendencia (Line)
+        const ctxTrend = document.getElementById('salesTrendChart').getContext('2d');
+        new Chart(ctxTrend, {
+            type: 'line',
+            data: {
+                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                datasets: [{
+                    label: 'Ventas 2014 ($)',
+                    data: [4500000, 3800000, 5200000, 4900000, 6100000, 5800000, 7200000, 6800000, 8100000, 9500000, 11000000, 12500000],
+                    borderColor: colors.blue,
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+
+        // 2. Gráfico de País (Bar)
+        const ctxCountry = document.getElementById('countryChart').getContext('2d');
+        new Chart(ctxCountry, {
+            type: 'bar',
+            data: {
+                labels: ['Canadá', 'Alemania', 'Francia', 'México', 'EE.UU.'],
+                datasets: [{
+                    label: 'Ventas por Región',
+                    data: [24887654, 23505340, 24354172, 20949352, 25029830],
+                    backgroundColor: [colors.blue, colors.green, colors.purple, colors.orange, colors.red]
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } }
+            }
+        });
+
+        // 3. Gráfico de Segmento (Doughnut)
+        const ctxSegment = document.getElementById('segmentChart').getContext('2d');
+        new Chart(ctxSegment, {
+            type: 'doughnut',
+            data: {
+                labels: ['Gobierno', 'Midmarket', 'Enterprise', 'Small Business', 'Partners'],
+                datasets: [{
+                    data: [45, 15, 20, 12, 8],
+                    backgroundColor: [colors.blue, colors.green, colors.purple, colors.orange, colors.gray]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom' } }
+            }
+        });
+
+        // 4. Gráfico de Producto (Polar Area)
+        const ctxProduct = document.getElementById('productChart').getContext('2d');
+        new Chart(ctxProduct, {
+            type: 'bar',
+            data: {
+                labels: ['Carretera', 'Montana', 'Velo', 'VTT', 'Paseo', 'Amarilla'],
+                datasets: [{
+                    label: 'Ganancia por Producto',
+                    data: [1580000, 1420000, 1290000, 1650000, 1890000, 1100000],
+                    backgroundColor: colors.purple
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } }
+            }
+        });
+    </script>
+</body>
+</html>
