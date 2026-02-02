@@ -33,14 +33,14 @@
         <div class="flex flex-col lg:flex-row lg:items-center justify-between mb-8 gap-6">
             <div>
                 <h1 class="text-3xl font-bold text-gray-800">Panel de Ventas Interactivo</h1>
-                <p class="text-gray-500">Filtra los datos para un análisis personalizado</p>
+                <p class="text-gray-500">Analiza el rendimiento con filtros avanzados</p>
             </div>
             
             <div class="flex flex-wrap gap-4 bg-white p-4 rounded-xl shadow-sm border border-gray-200">
                 <div class="flex flex-col">
                     <label class="text-xs font-bold text-gray-400 uppercase mb-1">País</label>
                     <select id="countryFilter" class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none">
-                        <option value="Todos">Todos los países</option>
+                        <option value="Todos">Todos</option>
                         <option value="Canadá">Canadá</option>
                         <option value="Alemania">Alemania</option>
                         <option value="Francia">Francia</option>
@@ -51,15 +51,41 @@
                 <div class="flex flex-col">
                     <label class="text-xs font-bold text-gray-400 uppercase mb-1">Segmento</label>
                     <select id="segmentFilter" class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none">
-                        <option value="Todos">Todos los segmentos</option>
+                        <option value="Todos">Todos</option>
                         <option value="Gobierno">Gobierno</option>
                         <option value="Midmarket">Midmarket</option>
                         <option value="Enterprise">Enterprise</option>
                         <option value="Small Business">Small Business</option>
                     </select>
                 </div>
+                <div class="flex flex-col">
+                    <label class="text-xs font-bold text-gray-400 uppercase mb-1">Producto</label>
+                    <select id="productFilter" class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+                        <option value="Todos">Todos</option>
+                        <option value="Carretera">Carretera</option>
+                        <option value="Montana">Montana</option>
+                        <option value="Velo">Velo</option>
+                        <option value="VTT">VTT</option>
+                        <option value="Paseo">Paseo</option>
+                    </select>
+                </div>
+                <div class="flex flex-col">
+                    <label class="text-xs font-bold text-gray-400 uppercase mb-1">Mes Inicio</label>
+                    <select id="monthStart" class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+                        <option value="0">Enero</option>
+                        <option value="1">Febrero</option>
+                        <option value="2">Marzo</option>
+                        <option value="3">Abril</option>
+                        <option value="4">Mayo</option>
+                        <option value="5">Junio</option>
+                        <option value="6">Julio</option>
+                        <option value="7">Agosto</option>
+                        <option value="8">Septiembre</option>
+                        <option value="9">Octubre</option>
+                    </select>
+                </div>
                 <div class="flex items-end">
-                    <button onclick="resetFilters()" class="text-blue-600 hover:text-blue-800 text-sm font-medium pb-2">Limpiar</button>
+                    <button onclick="resetFilters()" class="bg-gray-100 hover:bg-gray-200 text-gray-600 px-4 py-2 rounded-lg text-sm font-medium transition">Limpiar</button>
                 </div>
             </div>
         </div>
@@ -93,7 +119,7 @@
                 </div>
             </div>
             <div class="card">
-                <h4 class="text-lg font-bold text-gray-700 mb-4">Distribución Geográfica</h4>
+                <h4 class="text-lg font-bold text-gray-700 mb-4">Ventas por País</h4>
                 <div class="h-64">
                     <canvas id="countryChart"></canvas>
                 </div>
@@ -109,7 +135,7 @@
                 </div>
             </div>
             <div class="card lg:col-span-2">
-                <h4 class="text-lg font-bold text-gray-700 mb-4">Rendimiento por Producto</h4>
+                <h4 class="text-lg font-bold text-gray-700 mb-4">Rendimiento Mensual Detallado</h4>
                 <div class="h-64">
                     <canvas id="productChart"></canvas>
                 </div>
@@ -118,28 +144,30 @@
     </div>
 
     <script>
-        // Datos brutos simulados basados en el archivo analizado
+        const monthNames = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct'];
+        
+        // Datos brutos expandidos para reflejar mejor el filtrado por producto y mes
         const rawData = [
-            { country: 'Canadá', segment: 'Gobierno', sales: 12000000, profit: 2000000, units: 150000, product: 'Carretera', month: 'Ene' },
-            { country: 'Alemania', segment: 'Midmarket', sales: 8000000, profit: 1200000, units: 90000, product: 'Montana', month: 'Feb' },
-            { country: 'Francia', segment: 'Enterprise', sales: 15000000, profit: 1800000, units: 120000, product: 'Velo', month: 'Mar' },
-            { country: 'México', segment: 'Small Business', sales: 5000000, profit: 900000, units: 70000, product: 'VTT', month: 'Abr' },
-            { country: 'EE.UU.', segment: 'Gobierno', sales: 22000000, profit: 3500000, units: 200000, product: 'Paseo', month: 'May' },
-            { country: 'Canadá', segment: 'Midmarket', sales: 9000000, profit: 1100000, units: 85000, product: 'Velo', month: 'Jun' },
-            { country: 'Alemania', segment: 'Enterprise', sales: 14000000, profit: 2100000, units: 110000, product: 'Carretera', month: 'Jul' },
-            { country: 'Francia', segment: 'Gobierno', sales: 11000000, profit: 1600000, units: 95000, product: 'VTT', month: 'Ago' },
-            { country: 'México', segment: 'Enterprise', sales: 12000000, profit: 1400000, units: 105000, product: 'Montana', month: 'Sep' },
-            { country: 'EE.UU.', segment: 'Small Business', sales: 10000000, profit: 1300000, units: 100000, product: 'Paseo', month: 'Oct' }
+            { country: 'Canadá', segment: 'Gobierno', sales: 12000000, profit: 2000000, units: 150000, product: 'Carretera', monthIdx: 0 },
+            { country: 'Alemania', segment: 'Midmarket', sales: 8000000, profit: 1200000, units: 90000, product: 'Montana', monthIdx: 1 },
+            { country: 'Francia', segment: 'Enterprise', sales: 15000000, profit: 1800000, units: 120000, product: 'Velo', monthIdx: 2 },
+            { country: 'México', segment: 'Small Business', sales: 5000000, profit: 900000, units: 70000, product: 'VTT', monthIdx: 3 },
+            { country: 'EE.UU.', segment: 'Gobierno', sales: 22000000, profit: 3500000, units: 200000, product: 'Paseo', monthIdx: 4 },
+            { country: 'Canadá', segment: 'Midmarket', sales: 9000000, profit: 1100000, units: 85000, product: 'Velo', monthIdx: 5 },
+            { country: 'Alemania', segment: 'Enterprise', sales: 14000000, profit: 2100000, units: 110000, product: 'Carretera', monthIdx: 6 },
+            { country: 'Francia', segment: 'Gobierno', sales: 11000000, profit: 1600000, units: 95000, product: 'VTT', monthIdx: 7 },
+            { country: 'México', segment: 'Enterprise', sales: 12000000, profit: 1400000, units: 105000, product: 'Montana', monthIdx: 8 },
+            { country: 'EE.UU.', segment: 'Small Business', sales: 10000000, profit: 1300000, units: 100000, product: 'Paseo', monthIdx: 9 }
         ];
 
         let charts = {};
 
         function initCharts() {
             const chartConfigs = [
-                { id: 'salesTrendChart', type: 'line', label: 'Ventas' },
-                { id: 'countryChart', type: 'bar', label: 'Ventas por País' },
-                { id: 'segmentChart', type: 'doughnut', label: 'Segmentos' },
-                { id: 'productChart', type: 'bar', label: 'Ganancia por Producto' }
+                { id: 'salesTrendChart', type: 'line' },
+                { id: 'countryChart', type: 'bar' },
+                { id: 'segmentChart', type: 'doughnut' },
+                { id: 'productChart', type: 'bar' }
             ];
 
             chartConfigs.forEach(config => {
@@ -159,11 +187,15 @@
         function updateDashboard() {
             const country = document.getElementById('countryFilter').value;
             const segment = document.getElementById('segmentFilter').value;
+            const product = document.getElementById('productFilter').value;
+            const startMonth = parseInt(document.getElementById('monthStart').value);
 
-            // Filtrar datos
+            // Filtrar datos con los nuevos criterios
             const filtered = rawData.filter(d => 
                 (country === 'Todos' || d.country === country) && 
-                (segment === 'Todos' || d.segment === segment)
+                (segment === 'Todos' || d.segment === segment) &&
+                (product === 'Todos' || d.product === product) &&
+                (d.monthIdx >= startMonth)
             );
 
             // Calcular KPIs
@@ -177,8 +209,9 @@
             document.getElementById('kpiUnits').innerText = `${(totalUnits / 1000).toFixed(0)}K`;
             document.getElementById('kpiMargin').innerText = `${margin}%`;
 
-            // Actualizar Gráfico de Tendencia
-            charts['salesTrendChart'].data.labels = filtered.map(d => d.month);
+            // Actualizar Gráfico de Tendencia (Evolución según meses filtrados)
+            charts['salesTrendChart'].data.labels = filtered.map(d => monthNames[d.monthIdx]);
+            charts['salesTrendChart'].data.datasets[0].label = 'Ventas Seleccionadas';
             charts['salesTrendChart'].data.datasets[0].data = filtered.map(d => d.sales);
             charts['salesTrendChart'].data.datasets[0].borderColor = '#3b82f6';
             charts['salesTrendChart'].data.datasets[0].backgroundColor = 'rgba(59, 130, 246, 0.1)';
@@ -200,28 +233,32 @@
             charts['segmentChart'].data.datasets[0].backgroundColor = ['#3b82f6', '#10b981', '#8b5cf6', '#f59e0b'];
             charts['segmentChart'].update();
 
-            // Actualizar Gráfico de Producto
-            const productData = {};
-            filtered.forEach(d => productData[d.product] = (productData[d.product] || 0) + d.profit);
-            charts['productChart'].data.labels = Object.keys(productData);
-            charts['productChart'].data.datasets[0].data = Object.values(productData);
-            charts['productChart'].data.datasets[0].backgroundColor = '#8b5cf6';
+            // Actualizar Gráfico de Producto (Ahora muestra ganancia acumulada de los filtrados)
+            const productResults = {};
+            filtered.forEach(d => productResults[d.product] = (productResults[d.product] || 0) + d.profit);
+            charts['productChart'].data.labels = Object.keys(productResults);
+            charts['productChart'].data.datasets[0].label = 'Ganancia Bruta';
+            charts['productChart'].data.datasets[0].data = Object.values(productResults);
+            charts['productChart'].data.datasets[0].backgroundColor = '#10b981';
             charts['productChart'].update();
         }
 
         function resetFilters() {
             document.getElementById('countryFilter').value = 'Todos';
             document.getElementById('segmentFilter').value = 'Todos';
+            document.getElementById('productFilter').value = 'Todos';
+            document.getElementById('monthStart').value = '0';
             updateDashboard();
         }
 
-        // Inicialización
         window.onload = () => {
             initCharts();
             updateDashboard();
             
-            document.getElementById('countryFilter').addEventListener('change', updateDashboard);
-            document.getElementById('segmentFilter').addEventListener('change', updateDashboard);
+            // Listeners para todos los filtros
+            ['countryFilter', 'segmentFilter', 'productFilter', 'monthStart'].forEach(id => {
+                document.getElementById(id).addEventListener('change', updateDashboard);
+            });
         };
     </script>
 </body>
