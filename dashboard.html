@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Intelligence Dashboard</title>
+    <title>Business Intelligence Dashboard Interactivo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -17,56 +17,83 @@
             background-color: #f3f4f6;
             font-family: 'Inter', sans-serif;
         }
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+        }
     </style>
 </head>
 <body class="p-4 md:p-8">
     <div class="max-w-7xl mx-auto">
-        <!-- Header -->
-        <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+        <!-- Header & Controls -->
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between mb-8 gap-6">
             <div>
-                <h1 class="text-3xl font-bold text-gray-800">Panel de Control de Ventas</h1>
-                <p class="text-gray-500">Análisis de rendimiento comercial y financiero</p>
+                <h1 class="text-3xl font-bold text-gray-800">Panel de Ventas Interactivo</h1>
+                <p class="text-gray-500">Filtra los datos para un análisis personalizado</p>
             </div>
-            <div class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md text-center">
-                <span class="text-sm block uppercase tracking-wide">Actualizado</span>
-                <span class="font-bold">Feb 2026</span>
+            
+            <div class="flex flex-wrap gap-4 bg-white p-4 rounded-xl shadow-sm border border-gray-200">
+                <div class="flex flex-col">
+                    <label class="text-xs font-bold text-gray-400 uppercase mb-1">País</label>
+                    <select id="countryFilter" class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+                        <option value="Todos">Todos los países</option>
+                        <option value="Canadá">Canadá</option>
+                        <option value="Alemania">Alemania</option>
+                        <option value="Francia">Francia</option>
+                        <option value="México">México</option>
+                        <option value="EE.UU.">EE.UU.</option>
+                    </select>
+                </div>
+                <div class="flex flex-col">
+                    <label class="text-xs font-bold text-gray-400 uppercase mb-1">Segmento</label>
+                    <select id="segmentFilter" class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+                        <option value="Todos">Todos los segmentos</option>
+                        <option value="Gobierno">Gobierno</option>
+                        <option value="Midmarket">Midmarket</option>
+                        <option value="Enterprise">Enterprise</option>
+                        <option value="Small Business">Small Business</option>
+                    </select>
+                </div>
+                <div class="flex items-end">
+                    <button onclick="resetFilters()" class="text-blue-600 hover:text-blue-800 text-sm font-medium pb-2">Limpiar</button>
+                </div>
             </div>
         </div>
 
         <!-- KPI Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <div class="card border-l-4 border-blue-500">
-                <p class="text-sm text-gray-500 font-semibold uppercase">Ventas Totales</p>
-                <h3 class="text-2xl font-bold text-gray-800" id="totalSales">$118.7M</h3>
-                <p class="text-green-500 text-xs mt-2">▲ 12% vs periodo anterior</p>
+                <p class="text-sm text-gray-500 font-semibold uppercase tracking-wider">Ventas</p>
+                <h3 class="text-2xl font-bold text-gray-800" id="kpiSales">$0.00</h3>
             </div>
             <div class="card border-l-4 border-green-500">
-                <p class="text-sm text-gray-500 font-semibold uppercase">Ganancia Neta</p>
-                <h3 class="text-2xl font-bold text-gray-800" id="totalProfit">$16.9M</h3>
-                <p class="text-green-500 text-xs mt-2">▲ 8.4% margen promedio</p>
+                <p class="text-sm text-gray-500 font-semibold uppercase tracking-wider">Ganancia</p>
+                <h3 class="text-2xl font-bold text-gray-800" id="kpiProfit">$0.00</h3>
             </div>
             <div class="card border-l-4 border-purple-500">
-                <p class="text-sm text-gray-500 font-semibold uppercase">Unidades Vendidas</p>
-                <h3 class="text-2xl font-bold text-gray-800" id="totalUnits">1.13M</h3>
-                <p class="text-gray-400 text-xs mt-2">Distribución global</p>
+                <p class="text-sm text-gray-500 font-semibold uppercase tracking-wider">Unidades</p>
+                <h3 class="text-2xl font-bold text-gray-800" id="kpiUnits">0</h3>
             </div>
             <div class="card border-l-4 border-orange-500">
-                <p class="text-sm text-gray-500 font-semibold uppercase">Descuentos Aplicados</p>
-                <h3 class="text-2xl font-bold text-gray-800" id="totalDiscounts">$9.2M</h3>
-                <p class="text-red-400 text-xs mt-2">7.7% del ingreso bruto</p>
+                <p class="text-sm text-gray-500 font-semibold uppercase tracking-wider">Margen %</p>
+                <h3 class="text-2xl font-bold text-gray-800" id="kpiMargin">0%</h3>
             </div>
         </div>
 
         <!-- Charts Row 1 -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
             <div class="card">
-                <h4 class="text-lg font-bold text-gray-700 mb-4">Tendencia de Ventas Mensuales</h4>
+                <h4 class="text-lg font-bold text-gray-700 mb-4">Tendencia Temporal</h4>
                 <div class="h-64">
                     <canvas id="salesTrendChart"></canvas>
                 </div>
             </div>
             <div class="card">
-                <h4 class="text-lg font-bold text-gray-700 mb-4">Ventas por País</h4>
+                <h4 class="text-lg font-bold text-gray-700 mb-4">Distribución Geográfica</h4>
                 <div class="h-64">
                     <canvas id="countryChart"></canvas>
                 </div>
@@ -91,95 +118,111 @@
     </div>
 
     <script>
-        // Configuración de colores corporativos
-        const colors = {
-            blue: '#3b82f6',
-            green: '#10b981',
-            purple: '#8b5cf6',
-            orange: '#f59e0b',
-            red: '#ef4444',
-            gray: '#6b7280'
+        // Datos brutos simulados basados en el archivo analizado
+        const rawData = [
+            { country: 'Canadá', segment: 'Gobierno', sales: 12000000, profit: 2000000, units: 150000, product: 'Carretera', month: 'Ene' },
+            { country: 'Alemania', segment: 'Midmarket', sales: 8000000, profit: 1200000, units: 90000, product: 'Montana', month: 'Feb' },
+            { country: 'Francia', segment: 'Enterprise', sales: 15000000, profit: 1800000, units: 120000, product: 'Velo', month: 'Mar' },
+            { country: 'México', segment: 'Small Business', sales: 5000000, profit: 900000, units: 70000, product: 'VTT', month: 'Abr' },
+            { country: 'EE.UU.', segment: 'Gobierno', sales: 22000000, profit: 3500000, units: 200000, product: 'Paseo', month: 'May' },
+            { country: 'Canadá', segment: 'Midmarket', sales: 9000000, profit: 1100000, units: 85000, product: 'Velo', month: 'Jun' },
+            { country: 'Alemania', segment: 'Enterprise', sales: 14000000, profit: 2100000, units: 110000, product: 'Carretera', month: 'Jul' },
+            { country: 'Francia', segment: 'Gobierno', sales: 11000000, profit: 1600000, units: 95000, product: 'VTT', month: 'Ago' },
+            { country: 'México', segment: 'Enterprise', sales: 12000000, profit: 1400000, units: 105000, product: 'Montana', month: 'Sep' },
+            { country: 'EE.UU.', segment: 'Small Business', sales: 10000000, profit: 1300000, units: 100000, product: 'Paseo', month: 'Oct' }
+        ];
+
+        let charts = {};
+
+        function initCharts() {
+            const chartConfigs = [
+                { id: 'salesTrendChart', type: 'line', label: 'Ventas' },
+                { id: 'countryChart', type: 'bar', label: 'Ventas por País' },
+                { id: 'segmentChart', type: 'doughnut', label: 'Segmentos' },
+                { id: 'productChart', type: 'bar', label: 'Ganancia por Producto' }
+            ];
+
+            chartConfigs.forEach(config => {
+                const ctx = document.getElementById(config.id).getContext('2d');
+                charts[config.id] = new Chart(ctx, {
+                    type: config.type,
+                    data: { labels: [], datasets: [{ data: [], backgroundColor: [] }] },
+                    options: { 
+                        responsive: true, 
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: config.type === 'doughnut' } }
+                    }
+                });
+            });
+        }
+
+        function updateDashboard() {
+            const country = document.getElementById('countryFilter').value;
+            const segment = document.getElementById('segmentFilter').value;
+
+            // Filtrar datos
+            const filtered = rawData.filter(d => 
+                (country === 'Todos' || d.country === country) && 
+                (segment === 'Todos' || d.segment === segment)
+            );
+
+            // Calcular KPIs
+            const totalSales = filtered.reduce((acc, curr) => acc + curr.sales, 0);
+            const totalProfit = filtered.reduce((acc, curr) => acc + curr.profit, 0);
+            const totalUnits = filtered.reduce((acc, curr) => acc + curr.units, 0);
+            const margin = totalSales > 0 ? ((totalProfit / totalSales) * 100).toFixed(1) : 0;
+
+            document.getElementById('kpiSales').innerText = `$${(totalSales / 1000000).toFixed(1)}M`;
+            document.getElementById('kpiProfit').innerText = `$${(totalProfit / 1000000).toFixed(1)}M`;
+            document.getElementById('kpiUnits').innerText = `${(totalUnits / 1000).toFixed(0)}K`;
+            document.getElementById('kpiMargin').innerText = `${margin}%`;
+
+            // Actualizar Gráfico de Tendencia
+            charts['salesTrendChart'].data.labels = filtered.map(d => d.month);
+            charts['salesTrendChart'].data.datasets[0].data = filtered.map(d => d.sales);
+            charts['salesTrendChart'].data.datasets[0].borderColor = '#3b82f6';
+            charts['salesTrendChart'].data.datasets[0].backgroundColor = 'rgba(59, 130, 246, 0.1)';
+            charts['salesTrendChart'].update();
+
+            // Actualizar Gráfico de País
+            const countryData = {};
+            filtered.forEach(d => countryData[d.country] = (countryData[d.country] || 0) + d.sales);
+            charts['countryChart'].data.labels = Object.keys(countryData);
+            charts['countryChart'].data.datasets[0].data = Object.values(countryData);
+            charts['countryChart'].data.datasets[0].backgroundColor = ['#3b82f6', '#10b981', '#8b5cf6', '#f59e0b', '#ef4444'];
+            charts['countryChart'].update();
+
+            // Actualizar Gráfico de Segmento
+            const segmentData = {};
+            filtered.forEach(d => segmentData[d.segment] = (segmentData[d.segment] || 0) + d.sales);
+            charts['segmentChart'].data.labels = Object.keys(segmentData);
+            charts['segmentChart'].data.datasets[0].data = Object.values(segmentData);
+            charts['segmentChart'].data.datasets[0].backgroundColor = ['#3b82f6', '#10b981', '#8b5cf6', '#f59e0b'];
+            charts['segmentChart'].update();
+
+            // Actualizar Gráfico de Producto
+            const productData = {};
+            filtered.forEach(d => productData[d.product] = (productData[d.product] || 0) + d.profit);
+            charts['productChart'].data.labels = Object.keys(productData);
+            charts['productChart'].data.datasets[0].data = Object.values(productData);
+            charts['productChart'].data.datasets[0].backgroundColor = '#8b5cf6';
+            charts['productChart'].update();
+        }
+
+        function resetFilters() {
+            document.getElementById('countryFilter').value = 'Todos';
+            document.getElementById('segmentFilter').value = 'Todos';
+            updateDashboard();
+        }
+
+        // Inicialización
+        window.onload = () => {
+            initCharts();
+            updateDashboard();
+            
+            document.getElementById('countryFilter').addEventListener('change', updateDashboard);
+            document.getElementById('segmentFilter').addEventListener('change', updateDashboard);
         };
-
-        // 1. Gráfico de Tendencia (Line)
-        const ctxTrend = document.getElementById('salesTrendChart').getContext('2d');
-        new Chart(ctxTrend, {
-            type: 'line',
-            data: {
-                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-                datasets: [{
-                    label: 'Ventas 2014 ($)',
-                    data: [4500000, 3800000, 5200000, 4900000, 6100000, 5800000, 7200000, 6800000, 8100000, 9500000, 11000000, 12500000],
-                    borderColor: colors.blue,
-                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                    fill: true,
-                    tension: 0.4
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
-                scales: { y: { beginAtZero: true } }
-            }
-        });
-
-        // 2. Gráfico de País (Bar)
-        const ctxCountry = document.getElementById('countryChart').getContext('2d');
-        new Chart(ctxCountry, {
-            type: 'bar',
-            data: {
-                labels: ['Canadá', 'Alemania', 'Francia', 'México', 'EE.UU.'],
-                datasets: [{
-                    label: 'Ventas por Región',
-                    data: [24887654, 23505340, 24354172, 20949352, 25029830],
-                    backgroundColor: [colors.blue, colors.green, colors.purple, colors.orange, colors.red]
-                }]
-            },
-            options: {
-                indexAxis: 'y',
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false } }
-            }
-        });
-
-        // 3. Gráfico de Segmento (Doughnut)
-        const ctxSegment = document.getElementById('segmentChart').getContext('2d');
-        new Chart(ctxSegment, {
-            type: 'doughnut',
-            data: {
-                labels: ['Gobierno', 'Midmarket', 'Enterprise', 'Small Business', 'Partners'],
-                datasets: [{
-                    data: [45, 15, 20, 12, 8],
-                    backgroundColor: [colors.blue, colors.green, colors.purple, colors.orange, colors.gray]
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { position: 'bottom' } }
-            }
-        });
-
-        // 4. Gráfico de Producto (Polar Area)
-        const ctxProduct = document.getElementById('productChart').getContext('2d');
-        new Chart(ctxProduct, {
-            type: 'bar',
-            data: {
-                labels: ['Carretera', 'Montana', 'Velo', 'VTT', 'Paseo', 'Amarilla'],
-                datasets: [{
-                    label: 'Ganancia por Producto',
-                    data: [1580000, 1420000, 1290000, 1650000, 1890000, 1100000],
-                    backgroundColor: colors.purple
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false } }
-            }
-        });
     </script>
 </body>
 </html>
