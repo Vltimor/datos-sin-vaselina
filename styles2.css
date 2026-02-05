@@ -117,4 +117,24 @@ a:hover { color: #e74c3c; }
 .oficial { background-color: #f0f8ff; border-left: 5px solid #007bff; }
 .rojo { color: #c0392b; font-weight: bold; }
 .verde { color: #27ae60; font-weight: bold; }
-.fbeige { background: #fff3e0 !important; }
+.fbeige { background: #fef9e7 !important; }
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 720px;           /* Ancho máximo razonable */
+    max-height: 558px;          /* Altura máxima controlada */
+    margin: 20px auto;          /* Centrado */
+}
+
+#deudaChart {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 480px;
+}
+
+/* Leyenda más legible y compacta */
+.chart-container .chartjs-legend {
+    font-size: 13px;
+    line-height: 1.4;
+}
