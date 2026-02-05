@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Deuda Pública México 2025 por Sexenio</title>
-  <meta name="description" content="Deuda pública México 2025: pasó del 16.89% del PIB en 2006 al 51.7% en noviembre 2025. Fuentes SHCP.">
+  <meta name="description" content="Deuda pública México 2025: pasó del 16.89% del PIB en 2006 al 53.1% en diciembre 2025. Fuentes SHCP.">
   <meta name="keywords" content="deuda pública México 2025, deuda por sexenio, SHCP, América Latina">
   <link rel="stylesheet" href="../styles2.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -12,7 +12,6 @@
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-539R7EQE3N');</script>
 
 <!-- INICIA FAVICON -->
-
 <link rel="icon" type="image/x-icon" href="../favicons/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
@@ -72,7 +71,6 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="../favicons/mstile-144x144.png">
 <meta name="msapplication-config" content="../favicons/browserconfig.xml">
-
 <!-- TERMINA FAVICON -->
 </head>
 <body>
@@ -90,23 +88,29 @@ permitió que siempre aumentaran los ingresos (la recaudación) y que no tuviés
   </div>
 
 
-    <p>Valores en billones de pesos: $18.26 actualizados a precios de noviembre de 2025</p>
+    <p>Valores en billones de pesos: $18.77 ajustados por inflación (deflactados a nov 2006)</p>
+<div class="chart-container">
     <canvas id="deudaChart"></canvas>
+</div>
+
+<p class="nota-deflactacion">
+    <strong>Nota:</strong> Valores deflactados a precios de noviembre 2006 usando el método de aportes distribuidos (flujo uniforme) con el INPC (Índice Nacional de Precios al Consumidor).
+</p>
     <script>
         const ctx = document.getElementById('deudaChart').getContext('2d');
         new Chart(ctx, {
             type: 'pie',
             data: {
                 labels: [
-                    'Fox y anteriores (actualizada desde INPC nov 2006)',
-                    'Calderón (actualizada desde INPC nov 2009)',
-                    'Peña Nieto (actualizada desde INPC nov 2015)',
-                    'AMLO (actualizada desde INPC oct 2021 )',
-                    'Sheinbaum (actualizada desde INPC abr 2025)'
+                    'Fox y anteriores (nov 2006)',
+                    'Calderón (nov 2012)',
+                    'Peña Nieto (nov 2018)',
+                    'AMLO (sep 2024)',
+                    'Sheinbaum (dic 2025)'
                 ],
                 datasets: [{
                     label: 'Incremento (billones de pesos)',
-                    data: [4.30, 6.56, 8.54, 7.72, 1.56],
+                    data: [1.87, 2.83, 3.64, 3.25, 0.91],
                     backgroundColor: [
                         '#3498db',  // azul - Fox
                         '#e67e22',  // naranja - Calderón
@@ -130,7 +134,7 @@ permitió que siempre aumentaran los ingresos (la recaudación) y que no tuviés
                     },
                     title: {
                         display: true,
-                        text: 'Porcentaje de la Deuda (SHRFSP) adquirida por Presidente actualizada a precios de nov 2025',
+                        text: 'Porcentaje de la Deuda (SHRFSP) adquirida por Presidente ajustada por inflación (deflactados a nov 2006)',
                         font: { size: 20 },
                         padding: 20
                     },
@@ -150,73 +154,51 @@ permitió que siempre aumentaran los ingresos (la recaudación) y que no tuviés
         });
     </script>
 
-        <h2>Porcentaje del gasto público federal que se destina al pago del Servicio de la Deuda (SHRFSP)</h2>
-<table class="tabla-principal">
-<thead>
-<tr>
-<th>Presidente</th><th>Porcentaje del Gasto Neto Pagado</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Fox (nov 2006)</td><td>9.47%</td>
-</tr>
-<tr>
-<td>Calderón (nov 2012)</td><td>6.09%</td>
-</tr>
-<tr>
-<td>Peña (nov 2018)</td><td>9.13%</td>
-</tr>
-<tr>
-<td>AMLO (sep 2024)</td><td>12.69%</td>
-</tr>
-<tr class="fbeige">
-<td>Sheinbaum (nov 2025)</td><td class="rojo">13.05%</td>
-</tr>
-</tbody>
-<tfoot>
-Fuente: <a href="https://www.finanzaspublicas.hacienda.gob.mx/es/Finanzas_Publicas/Informes_al_Congreso_de_la_Union" target="_blank">Información de Finanzas Públicas y Deuda Pública -SHCP</a>
-</tfoot>
-</table>
-
-
   <table class="tabla-principal">
         <caption>Saldo Histórico de los Requerimientos Financieros del Sector Público (SHRFSP).</caption>
         <thead>
             <tr>
-                <th>Fecha de Corte</th>
                 <th>Presidente</th>
-                <th>Deuda (SHRFS) como % del PIB</th>
+                <th>SHRFSP (billones de pesos)</th>
+                <th>% del PIB</th>
+		<th>% del Presupuesto Ejercido destinado al pago de intereses, comisiones y gastos financieros de la deuda (SHRFSP)*</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>30 Nov 2006</td>
-                <td>Fox</td>
+                <td>Fox (nov 2006)</td>
+                <td>$1.88</td>
                 <td>17.06% <sup>[1]</sup></td>
+		<td>9.47%</td>
             </tr>
             <tr>
-                <td>30 Nov 2012</td>
-                <td>Calderón</td>
+                <td>Calderón (nov 2012)</td>
+                <td>$5.17</td>
                 <td>31.62% <sup>[2]</sup></td>
+		<td>6.09%</td>
             </tr>
             <tr>
-                <td>30 nov 2018</td>
-                <td>Peña</td>
+                <td>Peña (nov 2018)</td>
+                <td>$10.48</td>
                 <td>43.92% <sup>[3]</sup></td>
+		<td>9.13%</td>
             </tr>    
             <tr>
-                <td>30 sep 2024</td>
-                <td>AMLO</td>
-                <td class="rojo">52.44% <sup>[4]</sup></td>
+                <td>AMLO (sep 2024)</td>
+                <td>$16.73 <sup>[4]</sup></td>
+                <td>50.54%</td>
+		<td>12.69%</td>
             </tr>                 
             <tr class="fbeige">
-                <td>30 nov 2025</td>
-                <td>Sheinbaum<br>(En <strong>14 meses completos</strong> de gobierno)</td>
-                <td>51.70% <sup>[5]</sup></td>
+                <td>Sheinbaum (dic 2025)<br>(En <strong>15 meses completos</strong> de gobierno)</td>
+                <td>$18.77</td>
+                <td class="rojo">53.1% <sup>[5]</sup></td>
+		<td class="rojo">14.03% <sup>[5]</sup></td>
             </tr>     
         </tbody>
     </table>
+
+
     
     <p style="font-size: 0.9em; margin-top: 5px; font-style: italic;">
 	Notas: <br>
@@ -224,9 +206,10 @@ Fuente: <a href="https://www.finanzaspublicas.hacienda.gob.mx/es/Finanzas_Public
 	la deuda pública en años posteriores, a partir del sexenio de Enrique Peña Nieto.<br>
 	Porcentaje estimado. Las cifras de deuda como % del PIB para fechas intermedias (que no son de cierre anual) se basan en estimaciones del PIB publicadas por la SHCP, ya que el dato consolidado y definitivo del PIB solo se conoce tiempo después del cierre de cada año.<br>
 	"Billón" se refiere a un millón de millones.<br>
+* Sin Apoyo a PEMEX.
     </p>
 
-    <p><small><strong>Crisis internacionales:</strong> Fox (Punto Com), Calderón (Gran Recesión), AMLO (Covid), Sheinbaum (sin crisis mayor hasta sep 2025).</small></p>
+    <p><small><strong>Crisis internacionales:</strong> Fox (Punto Com), Calderón (Gran Recesión), AMLO (Covid), Sheinbaum (sin crisis mayor hasta sep 2025).</small></p><br>
 
     <br>
 
@@ -236,8 +219,12 @@ Fuente: <a href="https://www.finanzaspublicas.hacienda.gob.mx/es/Finanzas_Public
 <sup>[2]</sup> <a href="https://www.finanzaspublicas.hacienda.gob.mx/work/models/Finanzas_Publicas/docs/congreso/fp/2012/FP_201211.pdf" target="_blank">INFORMACIÓN DE FINANZAS PÚBLICAS Y DEUDA PÚBLICA, ENERO-NOVIEMBRE DE 2012</a><br>
 <sup>[3]</sup> <a href="https://www.finanzaspublicas.hacienda.gob.mx/work/models/Finanzas_Publicas/docs/congreso/fp/2018/FP_201811.pdf" target="_blank">INFORMACIÓN DE FINANZAS PÚBLICAS Y DEUDA PÚBLICA, ENERO-NOVIEMBRE DE 2018</a><br>
 <sup>[4]</sup> <a href="https://www.finanzaspublicas.hacienda.gob.mx/work/models/Finanzas_Publicas/docs/congreso/fp/2025/FP_202509.pdf" target="_blank">INFORMACIÓN DE FINANZAS PÚBLICAS Y DEUDA PÚBLICA, ENERO-SEPTIEMBRE DE 2025 (Revisado)</a><br>
-<sup>[5]</sup> Comunicado No. 71: Finanzas públicas y deuda pública a noviembre de 2025
+<sup>[5]</sup><a href="https://www.finanzaspublicas.hacienda.gob.mx/work/models/Finanzas_Publicas/docs/congreso/infotrim/2025/ivt/01inf/itindc_202504.pdf" target="_blank">Informes sobre situación económica, las finanzas públicas y la deuda pública. Cuarto Trimestre de 2025</a>
     </p>
+
+<p class="caja-nota">
+    <strong></strong> En solo un mes (dic-2025) la Administración de Sheinbaum incrementó la deuda (SHRFSP)<strong> medio billón de pesos</strong>
+</p>
 
   <p class="conclusion">
     El superpeso y las remesas récord<br>
