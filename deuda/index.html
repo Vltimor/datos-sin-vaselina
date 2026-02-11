@@ -87,73 +87,79 @@ permitió que siempre aumentaran los ingresos (la recaudación) y que no tuviés
     <span class="grande">ni de endeudar al país..."</span>
   </div>
 
-<!--
-    <p>Valores en billones de pesos: $18.77 ajustados por inflación (deflactados a nov 2006)</p>
+
+<!-- Add this canvas element where you want the bar chart to appear, e.g., after the table -->
 <div class="chart-container">
-    <canvas id="deudaChart"></canvas>
+    <canvas id="incrementChart"></canvas>
 </div>
 
-<p class="nota-deflactacion">
-    <strong>Nota:</strong> Valores deflactados a precios de noviembre 2006 usando el método de aportes distribuidos (flujo uniforme) con el INPC (Índice Nacional de Precios al Consumidor).
-</p>
-    <script>
-        const ctx = document.getElementById('deudaChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: [
-                    'Fox y anteriores (nov 2006)',
-                    'Calderón (nov 2012)',
-                    'Peña Nieto (nov 2018)',
-                    'AMLO (sep 2024)',
-                    'Sheinbaum (dic 2025)'
+
+<script>
+    const ctxIncrement = document.getElementById('incrementChart').getContext('2d');
+    new Chart(ctxIncrement, {
+        type: 'bar',
+        data: {
+            labels: [
+                'Fox',
+                'Calderón',
+                'Peña Nieto',
+                'AMLO',
+                ["Sheinbaum", "oct 2024 - dic 2025"]
+            ],
+            datasets: [{
+                label: 'Aumento en puntos porcentuales (% del PIB)',
+                data: [1.2, 5.3, 8.3, 6.6, 3.2],
+                backgroundColor: [
+                    '#3498db',  // azul - Fox
+                    '#e67e22',  // naranja - Calderón
+                    '#27ae60',  // verde - Peña
+                    '#c0392b',  // rojo - AMLO
+                    '#9b59b6'   // púrpura - Sheinbaum
                 ],
-                datasets: [{
-                    label: 'Incremento (billones de pesos)',
-                    data: [1.87, 2.83, 3.64, 3.25, 0.91],
-                    backgroundColor: [
-                        '#3498db',  // azul - Fox
-                        '#e67e22',  // naranja - Calderón
-                        '#27ae60',  // verde - Peña
-                        '#c0392b',  // rojo - AMLO
-                        '#9b59b6'   // púrpura - Sheinbaum
-                    ],
-                    borderColor: '#ffffff',
-                    borderWidth: 3
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: {
-                            font: { size: 14 },
-                            padding: 20
-                        }
-                    },
+                borderColor: '#ffffff',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
                     title: {
                         display: true,
-                        text: 'Porcentaje de la Deuda (SHRFSP) adquirida por Presidente ajustada por inflación (deflactados a nov 2006)',
-                        font: { size: 20 },
-                        padding: 20
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                const label = context.label || '';
-                                const value = context.parsed;
-                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                                const percentage = ((value / total) * 100).toFixed(2) + '%';
-                                return `${label}: ${value.toLocaleString()} billones (${percentage})`;
-                            }
+                        text: 'Puntos porcentuales (%)'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Presidente'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false  // Ocultar leyenda si no es necesaria
+                },
+                title: {
+                    display: true,
+                    text: 'Aumento en puntos porcentuales de la Deuda Pública (SHRFSP) por Presidente',
+                    font: { size: 20 },
+                    padding: 20
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `${context.label}: +${context.parsed.y} pp`;
                         }
                     }
                 }
             }
-        });
-    </script>
--->
+        }
+    });
+</script>
+
+
   <table class="tabla-principal">
         <caption>Saldo Histórico de los Requerimientos Financieros del Sector Público (SHRFSP).</caption>
         <thead>
@@ -212,7 +218,7 @@ permitió que siempre aumentaran los ingresos (la recaudación) y que no tuviés
 * Sin Apoyo a PEMEX.<br><br>
 ** Deuda Externa dic 2000 = $76,553.2 millones x $9.6098 (pesos/usd) = $735,660.94 millones de pesos<br>
 Deuda Externa $735,660.94 + IPAB $697,218.19 + Deuda Interna $606,182 = $2,039,061.13 millones de pesos<br><br>
-*** SHRFSP (Sep 2024) $16,730,500 millones de pesos / PIB Nominal (Sep 2024) $33,101,495 millones de pesos = 50.54%<br><br>
+*** SHRFSP (Sep 2024) $16,730,500 millones de pesos / PIB Nominal (9 meses anualizado) $33,101,495 millones de pesos = 50.54%<br><br>
 **** Inflación 2025 (3.69%) + Estimación Oportuna PIB 2025 = (0.7%) =  4.39%<br>
    PIB Anual 2024 Nominal = $33,506,847 millones de pesos<br>
    PIB Anual 2025 Nominal Estimado = 33,506,847 + 4.39% = $34,977,797 millones de pesos<br>
@@ -222,7 +228,7 @@ Deuda Externa $735,660.94 + IPAB $697,218.19 + Deuda Interna $606,182 = $2,039,0
     <p><small><strong>Crisis internacionales:</strong> Fox (Punto Com), Calderón (Gran Recesión), AMLO (Covid), Sheinbaum (sin crisis mayor hasta sep 2025).</small></p><br>
 
     <br>
-
+  <p class="fuente">
         <strong>Fuentes:</strong><br>
 <a href="https://www.inegi.org.mx/app/tabulados/default.aspx?pr=20&vr=1&in=3&tp=20&wr=1&cno=1&idrt=3257&opc=p" target="_blank">INEGI - PIB Nominal Año base 2018</a><br>
 <sup>[1]</sup> <a href="https://www.finanzaspublicas.hacienda.gob.mx/work/models/Finanzas_Publicas/docs/congreso/infotrim/2001/ivt/03aedp/itapdpdc_200104.pdf" target="_blank">Apéndice Estadístico Deuda Pública 4T-2001</a><br>
@@ -243,10 +249,6 @@ Deuda Externa $735,660.94 + IPAB $697,218.19 + Deuda Interna $606,182 = $2,039,0
     pagan los intereses de una deuda que no para de crecer.
   </p>
 
-  <p class="fuente">
-    Fuentes: SHCP (Deuda Pública Histórica), FMI, Banco Mundial<br>
-    Última actualización: noviembre 2025
-  </p>
 
   <p class="back-to-top"><a href="../">Volver al inicio</a></p>
 
