@@ -138,3 +138,18 @@ a:hover { color: #e74c3c; }
     font-size: 13px;
     line-height: 1.4;
 }
+
+/* Altura para pantallas grandes (Escritorio) */
+.chart-container-incremento {
+    position: relative;
+    height: 400px; /* Ajusta según prefieras */
+    width: 100%;
+    margin: 30px 0;
+}
+
+/* Altura para móviles (Pantallas menores a 768px) */
+@media (max-width: 768px) {
+    .chart-container-incremento {
+        height: 600px; /* Aquí le das la altura que quieras en móvil */
+    }
+}
