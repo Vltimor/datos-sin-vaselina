@@ -88,8 +88,10 @@ permitió que siempre aumentaran los ingresos (la recaudación) y que no tuviés
   </div>
 
 
+
 <!-- Add this canvas element where you want the bar chart to appear, e.g., after the table -->
-<div class="chart-container">
+
+<div class="chart-container-incremento">
     <canvas id="incrementChart"></canvas>
 </div>
 
@@ -122,6 +124,7 @@ permitió que siempre aumentaran los ingresos (la recaudación) y que no tuviés
         },
         options: {
             responsive: true,
+maintainAspectRatio: false, // <--- AGREGA ESTA LÍNEA
             scales: {
                 y: {
                     beginAtZero: true,
@@ -159,6 +162,8 @@ permitió que siempre aumentaran los ingresos (la recaudación) y que no tuviés
     });
 </script>
 
+<br>
+<br>
 
   <table class="tabla-principal">
         <caption>Saldo Histórico de los Requerimientos Financieros del Sector Público (SHRFSP).</caption>
@@ -167,7 +172,9 @@ permitió que siempre aumentaran los ingresos (la recaudación) y que no tuviés
                 <th>Presidente</th>
                 <th>SHRFSP (billones de pesos)</th>
                 <th>% del PIB</th>
-		<th>% del Presupuesto Ejercido destinado al pago de intereses, comisiones y gastos financieros de la deuda (SHRFSP)*</th>
+		<th>% del Presupuesto Ejercido destinado al pago del costo financiero de la deuda (SHRFSP)*</th>
+		<th>Promedio Tasa de Interés</th>
+
             </tr>
         </thead>
         <tbody>
@@ -176,36 +183,42 @@ permitió que siempre aumentaran los ingresos (la recaudación) y que no tuviés
                 <td>$2.04 <sup>[1]</sup></td>
                 <td>29.1% **</td>
 		<td>9.47%</td>
+		<td></td>
             </tr>
             <tr>
                 <td>Fox (dic 2006)</td>
                 <td>$3.36 <sup>[2]</sup></td>
                 <td>30.3%<br>+1.2pp</td>
 		<td>9.47%</td>
+		<td>7.9%</td>
             </tr>
             <tr>
                 <td>Calderón (dic 2012)</td>
                 <td>$5.89 <sup>[3]</sup></td>
                 <td>35.6%<br>+5.3pp</td>
 		<td>6.09%</td>
+		<td>5.3%</td>
             </tr>
             <tr>
                 <td>Peña (nov 2018)</td>
                 <td>$10.48 <sup>[4]</sup></td>
                 <td>43.9%<br>+8.3pp</td>
 		<td>9.13%</td>
+		<td>4.7%</td>
             </tr>    
             <tr>
                 <td>AMLO (sep 2024)</td>
                 <td>$16.73 <sup>[5]</sup></td>
                 <td>50.5% ***<br>+6.6pp</td>
 		<td>12.69%</td>
+		<td>7.8%</td>
             </tr>                 
             <tr class="fbeige">
                 <td>Sheinbaum (dic 2025)<br>(En <strong>15 meses completos</strong> de gobierno)</td>
                 <td>$18.77 <sup>[6]</sup></td>
                 <td class="rojo">53.7%****<br>+3.2pp</td>
 		<td class="rojo">14.03%</td>
+		<td class="rojo">8.6%</td>
             </tr>     
         </tbody>
     </table>
