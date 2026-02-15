@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Datos Sin Vaselina 2025 – Homicidios, Deuda, Inflación y Superpeso | México</title>
-  <meta name="description" content="Datos oficiales 2025 sin maquillaje: homicidios reclasificados, deuda récord, superpeso y protestas campesinas. Fuentes: INEGI, BANXICO, SESNSP.">
+  <title>Datos Sin Vaselina 2026 – Homicidios, Deuda, Inflación y Superpeso | México</title>
+  <meta name="description" content="Datos oficiales 2026 sin maquillaje: homicidios reclasificados, deuda récord, superpeso y protestas campesinas. Fuentes: INEGI, BANXICO, SESNSP.">
   <link rel="stylesheet" href="styles2.css">
 
 
@@ -23,7 +23,7 @@
       "#inflacion":  "https://vltimor.github.io/datos-sin-vaselina/inflacion/",
       "#inflación":  "https://vltimor.github.io/datos-sin-vaselina/inflacion/",
       "#deuda":      "https://vltimor.github.io/datos-sin-vaselina/deuda/",
-      "#produccion": "https://vltimor.github.io/datos-sin-vaselina/pib/",      // <-- MAPEO DE X (TWITTER)
+      "#produccion": "https://vltimor.github.io/datos-sin-vaselina/pib/",      
       "#producción": "https://vltimor.github.io/datos-sin-vaselina/pib/"
     };
 
@@ -78,7 +78,7 @@ Termina redireccionamiento de anomalía -->
     </script>
  Termina redireccionamiento de delitos -->
 
-<!-- Empieza favicon -->
+<!-- EMPIEZA FAVICON -->
 <link rel="icon" type="image/x-icon" href="favicons/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
@@ -138,10 +138,10 @@ Termina redireccionamiento de anomalía -->
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="favicons/mstile-144x144.png">
 <meta name="msapplication-config" content="favicons/browserconfig.xml">
-<!-- Termina favicon  -->
+<!-- TERMINA FAVICON  -->
 
-<meta property="og:title" content="Datos Sin Vaselina 2025 – Homicidios, Deuda, Inflación y Superpeso | México">
-<meta property="og:description" content="Datos oficiales 2025 sin maquillaje: homicidios reclasificados, deuda récord, superpeso y protestas campesinas. Fuentes: INEGI, BANXICO, SESNSP.">
+<meta property="og:title" content="Datos Sin Vaselina 2026 – Homicidios, Deuda, Inflación y Superpeso | México">
+<meta property="og:description" content="Datos oficiales 2026 sin maquillaje: homicidios reclasificados, deuda récord, superpeso y protestas campesinas. Fuentes: INEGI, BANXICO, SESNSP.">
 <meta property="og:url" content="https://vltimor.github.io/datos-sin-vaselina">
 <meta property="og:type" content="website">  
     <meta property="og:image" content="https://vltimor.github.io/datos-sin-vaselina/og-datos-sin-vaselina.jpg">
@@ -151,16 +151,234 @@ Termina redireccionamiento de anomalía -->
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-539R7EQE3N"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-539R7EQE3N');</script>
+
+
+				<!--- EMPIEZA DASHBOARD -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .metric-card { transition: all 0.3s ease; }
+        .metric-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        .bg-custom-dark { background-color: #1a1a1a; }
+        .loading-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+    </style>
+				<!-- TERMINA DASHBOARD -->
+
 </head>
-<body>
-  <h1>Datos Sin Vaselina 2025</h1>
+<body class="bg-gray-50 font-sans">
+ 
+        <header class="mb-10">
+
+    <!-- Navegación Adaptada para Móviles -->
+    <nav class="bg-custom-dark text-white shadow-lg border-b-2 border-red-600 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+                <!-- Título Principal -->
+                <h1 class="font-black text-xl md:text-2xl tracking-tighter text-white uppercase text-center md:text-left">
+                    DATOS SIN <span class="text-red-600">VASELINA</span>
+                </h1>
+               
+ <!-- Menú Deslizable en Móvil / Fijo en Desktop -->
+                <div class="flex overflow-x-auto hide-scrollbar space-x-6 text-[10px] md:text-xs font-bold uppercase tracking-widest pb-1 md:pb-0 justify-start md:justify-end border-t border-gray-800 md:border-t-0 pt-3 md:pt-0">
+                    <a href="/deficits/" class="hover:text-red-500 transition whitespace-nowrap">Déficits</a>
+                    <a href="/delitos/" class="hover:text-red-500 transition whitespace-nowrap">Delitos</a>
+                    <a href="/deuda/" class="hover:text-red-500 transition whitespace-nowrap">Deuda</a>
+                    <a href="/empleo/" class="hover:text-red-500 transition whitespace-nowrap">Empleo</a>
+                    <a href="/energeticos/" class="hover:text-red-500 transition whitespace-nowrap">Energéticos</a>
+                    <a href="/fobaproa/" class="hover:text-red-500 transition whitespace-nowrap">FOBAPROA</a>
+                    <a href="/inflacion/" class="hover:text-red-500 transition whitespace-nowrap">Inflación</a>
+                    <a href="/ied/" class="hover:text-red-500 transition whitespace-nowrap">Inv-Ext</a>
+                    <a href="/pib/" class="hover:text-red-500 transition whitespace-nowrap">PIB</a>
+                    <a href="/pobreza/" class="hover:text-red-500 transition whitespace-nowrap">Pobreza</a>
+                    <a href="/remesas/" class="hover:text-red-500 transition whitespace-nowrap">Remesas</a>
+                    <a href="/superpeso/" class="hover:text-red-500 transition whitespace-nowrap">Superpeso</a>
+                </div>
+        </div>
+    </nav>
+<br>
+
   <p style="text-align:center;font-size:1.3em;max-width:800px;margin:0 auto 50px;">
     Los datos oficiales que nadie quiere que veas. Actualizado cada semana.
   </p>
+        </header>
+
+    <div class="max-w-7xl mx-auto p-6">
+        <!-- Filtros y Estado -->
+        <div class="bg-white p-4 rounded-xl shadow-sm border mb-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-4">
+                <span class="text-gray-700 font-bold">Base de Datos:</span>
+                <span id="db-status" class="flex items-center gap-2 text-sm font-bold text-green-600">
+                    <span class="h-2 w-2 bg-green-600 rounded-full"></span> Sincronizada
+                </span>
+            </div>
+            <button onclick="cargarDatosReales()" class="bg-black text-white px-6 py-2 rounded-lg hover:bg-red-700 transition font-bold text-sm uppercase tracking-widest">
+                Refrescar Datos
+            </button>
+        </div>
+
+			<!-- EMPIEZA DASHBOARD -->
+<!-- KPI Grid -->
+        <!-- KPI Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+            <div class="metric-card bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Inflación</p>
+                <h2 id="val-inflacion" class="text-3xl font-black text-gray-800">--%</h2>
+                <p id="date-inflacion" class="text-[10px] text-red-600 font-bold mt-2 uppercase tracking-tighter tracking-widest">--</p>
+            </div>
+            <div class="metric-card bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Remesas</p>
+                <h2 id="val-remesas" class="text-3xl font-black text-gray-800">$--</h2>
+                <p id="date-remesas" class="text-[10px] text-red-600 font-bold mt-2 uppercase tracking-tighter tracking-widest">--</p>
+            </div>
+            <div class="metric-card bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Deuda (% PIB)</p>
+                <h2 id="val-deuda" class="text-3xl font-black text-gray-800">--%</h2>
+                <p id="date-deuda" class="text-[10px] text-red-600 font-bold mt-2 uppercase tracking-tighter tracking-widest">--</p>
+            </div>
+            <div class="metric-card bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Crecimiento PIB</p>
+                <h2 id="val-pib" class="text-3xl font-black text-gray-800">--%</h2>
+                <p id="date-pib" class="text-[10px] text-red-600 font-bold mt-2 uppercase tracking-tighter tracking-widest">--</p>
+            </div>
+        </div>
+
+
+        <!-- Gráficos -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                <h3 class="font-bold text-gray-800 uppercase text-sm mb-6 tracking-widest">Histórico de Inflación</h3>
+                <div class="h-72">
+                    <canvas id="chartInflacion"></canvas>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                <h3 class="font-bold text-gray-800 uppercase text-sm mb-6 tracking-widest">Comparativa Empleo vs Pobreza</h3>
+                <div class="h-72">
+                    <canvas id="chartSocial"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let charts = {};
+
+// Función centralizada para obtener datos de un archivo JSON
+        async function fetchJson(file) {
+            try {
+// En producción, esto buscará en tu carpeta /data/
+                const response = await fetch(`/data/${file}.json`);
+                if (!response.ok) throw new Error(`No se encontró ${file}.json`);
+                return await response.json();
+            } catch (error) {
+                console.warn("Usando datos de respaldo para:", file);
+                // Datos de respaldo (mock) para que el dashboard no se vea vacío si no encuentra el archivo
+                const mocks = {
+                    'inflacion': { valor: '0', periodo: '0', historico: [0, 0, 0, 0], presidentes: ['0', '0', '0', '0'] },
+                    'remesas': { valor: '0', periodo: '0' },
+                    'deuda': { valor: '0%', periodo: '0' },
+                    'pib': { valor: '0%', periodo: '0' },
+                    'social': { empleo: 58, pobreza: 36, informalidad: 54 }
+                };
+                return mocks[file];
+            }
+        }
+
+        async function cargarDatosReales() {
+// Cambiar estado a cargando
+            document.getElementById('db-status').innerHTML = '<span class="h-2 w-2 bg-orange-500 rounded-full loading-pulse"></span> Cargando...';
+
+// Ejecutar todas las peticiones en paralelo para máxima velocidad
+            const [inflacion, remesas, deuda, pib, social] = await Promise.all([
+                fetchJson('inflacion'),
+                fetchJson('remesas'),
+                fetchJson('deuda'),
+                fetchJson('pib'),
+                fetchJson('social')
+            ]);
+
+// Actualizar textos de los KPIs
+            document.getElementById('val-inflacion').innerText = inflacion.valor;
+            document.getElementById('date-inflacion').innerText = inflacion.periodo || '--';
+
+            document.getElementById('val-remesas').innerText = remesas.valor;
+            document.getElementById('date-remesas').innerText = remesas.periodo || '--';
+
+            document.getElementById('val-deuda').innerText = deuda.valor;
+            document.getElementById('date-deuda').innerText = deuda.periodo || '--';
+
+            document.getElementById('val-pib').innerText = pib.valor;
+            document.getElementById('date-pib').innerText = pib.periodo || '--';
+
+
+// Actualizar Gráfico de Inflación
+            charts.inflacion.data.labels = inflacion.presidentes;
+            charts.inflacion.data.datasets[0].data = inflacion.historico;
+            charts.inflacion.update();
+
+// Actualizar Gráfico Social
+            charts.social.data.datasets[0].data = [social.empleo, social.pobreza, social.informalidad];
+            charts.social.update();
+
+            document.getElementById('db-status').innerHTML = '<span class="h-2 w-2 bg-green-600 rounded-full"></span> Sincronizada';
+        }
+
+        function initCharts() {
+            // Config de Inflación
+            charts.inflacion = new Chart(document.getElementById('chartInflacion'), {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Inflación Acumulada Sexenal',
+                        data: [],
+                        borderColor: '#dc2626',
+                        borderWidth: 4,
+                        tension: 0.4,
+                        pointRadius: 0
+                    }]
+                },
+//                options: { responsive: true, maintainAspectRatio: false }
+                   options: { 
+                        responsive: true, 
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: {
+                            y: {
+                                beginAtZero: true // <--- Esto hace que el eje Y empiece en 0
+                            }
+                        }
+                    }
+            });
+
+            // Config Social
+            charts.social = new Chart(document.getElementById('chartSocial'), {
+                type: 'bar',
+                data: {
+                    labels: ['Empleo %', 'Pobreza %', 'Informalidad %'],
+                    datasets: [{
+                        data: [],
+                        backgroundColor: ['#1a1a1a', '#dc2626', '#4b5563']
+                    }]
+                },
+                options: { 
+                    responsive: true, 
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+            cargarDatosReales();
+        }
+
+        window.onload = initCharts;
+    </script>
+			<!-- TERMINA DASHBOARD -->
 
   <div class="grid">
     <div class="card"><a href="delitos/">Homicidios 2025</a></div>
-    <div class="card"><a href="superpeso/">Superpeso 2025</a></div>
+    <div class="card"><a href="superpeso/">Superpeso 2026</a></div>
     <div class="card"><a href="deuda/">Deuda Pública</a></div>
     <div class="card"><a href="inflacion/">Inflación</a></div>
     <div class="card"><a href="remesas/">Remesas Récord</a></div>
@@ -174,7 +392,7 @@ Termina redireccionamiento de anomalía -->
   </div>
 
   <p style="text-align:center;margin-top:80px;color:#777;">
-    © 2025 Datos Sin Vaselina – Todos los derechos reservados<br>
+    © 2026 Datos Sin Vaselina – Todos los derechos reservados<br>
     Contacto: datos.sin.vaselina@gmail.com
   </p>
 </body>
