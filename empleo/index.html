@@ -163,7 +163,7 @@
     <script>
         const ctx = document.getElementById('patronesChart').getContext('2d');
         const data = {
-            labels: ['Zedillo (nov-2000)', 'Fox (nov-2006)', 'Calderón (nov-2012)', 'Peña (nov-2018)', 'AMLO (sep-2024)', 'Sheinbaum (ene-2026)'],
+            labels: [["Zedillo", "nov-2000"], ["Fox", "nov-2006"], ["Calderón", "nov-2012"], ["Peña", "nov-2018"], ["AMLO", "sep-2024"], ["Sheinbaum", "ene-2026"]],
             datasets: [{
                 label: 'Patrones Afiliados al IMSS',
                 data: [788364, 820373, 838478, 981155, 1064545, 1023438],
@@ -199,7 +199,7 @@
                     x: {
                         title: {
                             display: true,
-                            text: 'Administración y Fecha'
+                            text: ''
                         }
                     }
                 }
@@ -208,6 +208,8 @@
 
         new Chart(ctx, config);
     </script>
+
+<img src="/pt-pat.png" alt="Gráfica comparativa de variación puestos de trabajo y patrones inscritos en el IMSS por año hasta ene-2026" title="Gráfica comparativa de variación puestos de trabajo y patrones inscritos en el IMSS por año hasta ene-2026">
 
 <table>
 <thead>
