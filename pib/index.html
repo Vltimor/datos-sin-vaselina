@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Crecimiento acumulado y tasa anual promedio (CAGR) del PIB real por sexenio presidencial en México según INEGI. Incluye estimación 2025 de 0.7% y comparativa Fox, Calderón, Peña, AMLO y Sheinbaum.">
+<meta name="description" content="Crecimiento acumulado y tasa anual promedio (CAGR) del PIB real por sexenio presidencial en México según INEGI. Incluye estimación 2025 de 0.56% y comparativa Fox, Calderón, Peña, AMLO y Sheinbaum.">
 <meta name="keywords" content="crecimiento pib por sexenio, pib méxico 2025, inegi pib, cagr pib méxico, sheinbaum pib 2025, amlo crecimiento económico, datos inegi 2025">
 <meta name="robots" content="index, follow">
 
@@ -104,88 +104,18 @@
 
   <h1>Crecimiento del PIB acumulado por Sexenio</h1>
   <p class="subtitulo">Comparación histórica del crecimiento del PIB por sexenios presidenciales</p>
-  <p class="fecha">Actualizado: 30 enero 2026</p>
+  <p class="fecha">Actualizado: 24 febrero 2026</p>
 
   <p class="back-to-top"><a href="../">Volver al inicio</a></p>
 
 
   <div class="destacado">
 Estimación en el Presupuesto de Egresos para 2025 = 3%. <br>
-    <span class="grande">Estimación preliminar del INEGI = 0.7%  <sup>[2]</sup></span>
+    <span class="grande">Estimación preliminar del INEGI = 0.56%</span>
   </div>
 
-    <h2>Tasa Compuesta Anual Promedio de Crecimiento del PIB (Real) por sexenio  <sup>[1]</sup></h2>
+    <h2>Crecimiento del PIB (Real) por sexenio</h2>
 
-    <div class="chart-container">
-        <canvas id="cagrChart"></canvas>
-    </div>
-
-    <p class="nota">
-         * Sheinbaum: periodo parcial (15 meses)  <sup>[2]</sup>
-    </p>
-
-    <script>
-        const ctx = document.getElementById('cagrChart').getContext('2d');
-
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: [
-                    ['Fox', '(2000-2006)'],
-                    ['Calderón', '(2006-2012)'],
-                    ['Peña', '(2012-2018)'],
-                    ['AMLO', '(2018-2024)'],
-                    ['Sheinbaum*', '(oct 2024 - dic 2025)'],
-                ],
-                datasets: [{
-                    label: 'CAGR (%)',
-                    data: [1.78, 1.35, 1.96, 0.80, 0.86],
-                    backgroundColor: [
-                        '#2e7d32',  // Fox
-                        '#2e7d32',  // Calderón
-                        '#2e7d32',  // Peña
-                        '#2e7d32',  // AMLO
-                        '#2e7d32'   // Sheinbaum
-                    ],
-                    borderColor: '#fff',
-                    borderWidth: 2,
-                    borderRadius: 6,
-                    hoverBackgroundColor: '#ff9800'
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false },
-                    title: {
-                        display: true,
-                        text: 'PIB CAGR',
-                        font: { size: 18 }
-                    },
-/*
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                return context.parsed.y + '% anual promedio';
-                            }
-                        }
-                    }
-*/
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: { display: true, text: 'Tasa anual promedio (%)' },
-                        ticks: { stepSize: 0.5 }
-                    },
-                    x: {
-                        title: { display: true, text: 'Presidente y período' }
-                    }
-                }		
-            }
-        });
-    </script>
 
   <table class="tabla-principal">
     <caption>Crecimiento del PIB Real (ajustado por inflación) por Sexenio (INEGI)</caption>
@@ -194,46 +124,39 @@ Estimación en el Presupuesto de Egresos para 2025 = 3%. <br>
                         <th scope="col">Sexenio</th>
                         <th scope="col">PIB a precios de 2018 <sup>[1]</sup></th>
                         <th scope="col">Crecimiento Acumulado</th>
-			<th scope="col">Tasa Compuesta Anual Promedio</th>
                     </tr>
 </thead>
 <tbody>
                     <tr>
-                        <th scope="row">Fox (nov-2006)</th>
+                        <th scope="row">Fox (dic 2000 - nov 2006)</th>
                         <td>$19,816,390 millones</td>
                         <td>11.19%</td>
-                        <td>1.78%</td>
                     </tr>
                     <tr>
-                        <th scope="row">Calderón (nov-2012)</th>
+                        <th scope="row">Calderón (dic 2006 - nov 2012)</th>
                         <td>$21,479,896 millones</td>
                         <td>8.39%</td>
-                        <td>1.35%</td>
                     </tr>
                     <tr>
-                        <th scope="row">Peña (nov-2018)</th>
+                        <th scope="row">Peña (dic 2012 - nov 2018)</th>
                         <td>$24,129,048 millones</td>
                         <td>12.33%</td>
-                        <td>1.96%</td>
                     </tr>
                     <tr>
-                        <th scope="row">AMLO (sep-2024)</th>
+                        <th scope="row">AMLO (dic 2018 - sep 2024)</th>
                         <td>$25,270,213 millones</td>
-                        <td class="rojo"><strong>4.73%</strong></td>
-                        <td class="rojo">0.80%</td>
+                        <td>4.73%</td>
                     </tr>
                     <tr class="fbeige">
-                        <th scope="row">Sheinbaum (dic-2025)</th>
-                        <td>$25,542,778 millones</td>
-                        <td><strong>1.08%</strong> <sup>[2]</sup></td>
-                        <td><strong>0.86%</strong></td>
+                        <th scope="row">Sheinbaum (oct 2024 - dic 2025)</th>
+                        <td>$25,507,693 millones</td>
+                        <td class="rojo"><strong>0.94%</strong></td>
                     </tr>
 </tbody>
 </table>
 
                     <p>
                     <sup>[1]</sup><a href="https://www.inegi.org.mx/app/tabulados/default.aspx?pr=20&vr=1&in=2&tp=20&wr=1&cno=1&idrt=3257&opc=p" target="_blank">Series Originales a precios de 2018 INEGI</a><br>
-                    <sup>[2]</sup><a href="https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2026/pibo/pib_eo2026_01.pdf" target="_blank">Con base en la Estimación Oportuna Desestacionalizada para 2025 INEGI (publicada el 30 enero 2026)</a><br>
                     </p>
 
 
@@ -241,10 +164,11 @@ Estimación en el Presupuesto de Egresos para 2025 = 3%. <br>
     <strong>Proyección 2025 (FMI, Banxico, OCDE):</strong> entre <strong>0.3 % y 0.9 %</strong>.<br>
   </p>
 
+<!--
   <p class="conclusion">
-El sexenio de Andrés Manuel López Obrador registra el menor crecimiento acumulado del PIB real (4.73%) de los últimos 25 años, con una tasa anual promedio de solo 0.80%. El arranque del gobierno de Claudia Sheinbaum muestra un crecimiento acumulado de 1.08% en 15 meses (CAGR 0.86%), por debajo de las expectativas iniciales.
-  </p>
 
+  </p>
+-->
   <p class="back-to-top"><a href="../">Volver al inicio</a></p>
 
 </body>
